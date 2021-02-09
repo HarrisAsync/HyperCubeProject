@@ -11,20 +11,20 @@ PARTICLES.width(INTRO.width());
 particlesJS("particles-js", {
     "particles": {
         "number": {
-            "value": 200,
+            "value": 75,
             "density": {
                 "enable": true,
                 "value_area": 500
             }
         },
         "color": {
-            "value": "#c3ffa3"
+            "value": "#1C5E3E"
         },
         "shape": {
             "type": "circle",
             "stroke": {
                 "width": 0,
-                "color": "#000000"
+                "color": "#1C5E3E"
             },
             "polygon": {
                 "nb_sides": 5
@@ -53,7 +53,7 @@ particlesJS("particles-js", {
         "line_linked": {
             "enable": true,
             "distance": 120,
-            "color": "#e3fad7",
+            "color": "#1C5E3E",
             "opacity": 0.75,
             "width": 2
         },
