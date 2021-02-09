@@ -5,6 +5,8 @@ var angle = 2;
 let budRadius = 12;
 var budFillClick = [208,240,192];
 let findSpiral = true;
+let minColourBud = 100;
+let maxColourBud = 200;
 let windW = 700; // Make sure dimentions are square
 let windH = 700; // Make sure dimentions are square
 
@@ -96,11 +98,6 @@ function mapPoints(points, xMin, xMax, yMin, yMax) {
     return arr;
 }
 
-function mapPoint(point, xMax, yMax, pads) {
-    return [map(point.x, 0, xMax, pads, windW - pads),map(Math.abs(point.y-yMax), 0, yMax, pads, windH - pads)];
-}
-
-
 function setup() {
     //windW = windowWidth;
     //windH = windowHeight;
@@ -116,8 +113,8 @@ function drawBud() {
     let y = mappedPoint[1];
     // Draw bud 
     // Colour scaling
-    let c1 = map(x, 0, windW, 100, 200);
-    let c2 = map(y, 0, windH, 100, 200);
+    let c1 = map(x, 0, windW, minColourBud, maxColourBud);
+    let c2 = map(y, 0, windH, minColourBud, maxColourBud);
     
     fill(0, c1, c2);
     ellipse(x, y, budRadius);
