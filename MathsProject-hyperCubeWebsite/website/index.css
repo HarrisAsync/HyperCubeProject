@@ -36,3 +36,7 @@
     position: absolute;
     z-index: -1000;
 }
+
+main {
+    overflow: hidden;
+}
