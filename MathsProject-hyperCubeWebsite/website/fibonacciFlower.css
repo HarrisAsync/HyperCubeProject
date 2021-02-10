@@ -12,10 +12,6 @@
     }
 }
 
-.nav-About-Text {
-    color: #EDEDED !important;
-}
-
 .navbar {
     background-color: #3FBA7D !important;
 }
@@ -30,13 +26,4 @@
 
 .text-faded {
     color: #adb5bb !important;
-}
-
-#particles-js {
-    position: absolute;
-    z-index: -1000;
-}
-
-main {
-    overflow: hidden;
 }
