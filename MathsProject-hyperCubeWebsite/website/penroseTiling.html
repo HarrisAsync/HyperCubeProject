@@ -1,0 +1,142 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="">
+  <meta name="generator" content="Hugo 0.79.0">
+  <title>Hypercube | Penrose Tiling</title>
+
+  <!-- Bootstrap core CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
+
+  <link rel="stylesheet" href="./index.css">
+  <link rel="stylesheet" href="./penroseTiling.css">
+</head>
+
+<body>
+    <!-- Navigation -->
+    <header>
+        <div class="collapse" id="navbarHeader" style="background-color:#1D5E3E;">
+          <div class="container">
+            <div class="row">
+              <div class="col-sm-8 col-md-7 py-4">
+                <h4 class="text-white">About</h4>
+                <p class="nav-About-Text">Made by a couple of Monash University students that love math a bit too much and have
+                  too much time on their hands.</p>
+                <p class="nav-About-Text">By: Harris Perdikoyiannis, William Zhang, James Vereker & Regan Harper</p>
+              </div>
+              <div class="col-sm-4 offset-md-1 py-4">
+                <h4 class="text-white">Contact</h4>
+                <ul class="list-unstyled">
+                  <li><a href="https://github.com/HarrisAsync/MathsProject" class="text-white">View GitHub</a></li>
+                  <li><a href="mailto:wzha0123@student.monash.edu" class="text-white">Email us</a></li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="navbar navbar-dark shadow-sm">
+          <div class="container">
+            <a href="./index.html" class="navbar-brand d-flex align-items-center">
+              <img class="m-1" src="./Assets/colour_logo.png" width="157.5" height="30">
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarHeader"
+              aria-controls="navbarHeader" aria-expanded="false" aria-label="Toggle navigation">
+              <span class="navbar-toggler-icon" ></span>
+            </button>
+          </div>
+        </div>
+      </header>
+
+    <main>
+        <!-- Main body -->
+        <div class="container" style="background-color: #F5F5F5">
+
+            <!--Title-->
+            <div class="row"><h1 style="padding-top: 20px;"> Penrose Tiling </h1></div>
+
+            <!--Introduction-->
+            <div class="row">
+              <!--Quick Introduction-->
+              <div class="col-md lead text-left textSpacing">
+                Named after the mathematician and physicist Roger Penrose, this tiling is aperiodic, meaning that the tiles on the plane do not contain arbitrarily large repeating patches. 
+                The tiling is typically formed with only 2 shapes, a kite and dart.
+              </div>
+              <!--Roger Penrose Quote-->
+              <div class="col-md textSpacing">
+                <figure class="text-end">
+                  <blockquote class="blockquote">
+                    <p>"It is always the case, with mathematics, that a little direct experience of thinking over 
+                      things on your own can provide a much deeper understanding than merely reading about them."</p>
+                  </blockquote>
+                  <figcaption class="blockquote-footer">
+                    <cite title="Source Title">Roger Penrose</cite>
+                  </figcaption>
+                </figure>
+              </div>
+            </div>
+            
+            <!--Penrose Tiling visualisation INFO-->
+            <div class="row">
+              <div class="text-center">
+                <h4>Click around on the visualisation</h4>
+              </div>
+            </div>
+
+            <!--Penrose Tiling visualisation-->
+            <div class="row justify-content-md-center">
+              <iframe sandbox="allow-forms allow-scripts" scrolling="no" width="100%" height="500" style="border:none; padding-bottom: 20px;" src="https://dglittle.github.io/cdn/penrose002.html"></iframe>
+            </div>
+
+            <!--Visualisation credit-->
+            <div class="row">
+              <div class="text-left lead">
+                <p>Visualisation by Greg Little <br>
+                  <small><a target="_blank" style="text-decoration: none;" class="text-muted" href="https://github.com/dglittle">View GitHub</a></small>
+                </p>
+              </div>
+            </div>
+
+            <!--Page design credit-->
+            <div class="row">
+              <div class="text-left lead">
+                <small class="text-muted"><p>Page authors: Regan Harper and Harris Perdikoyiannis</p></small>
+              </div>
+            </div>
+
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="text-muted py-5">
+        <div class="container">
+            <p class="float-end mb-1">
+                <a href="#">Back to top</a>
+            </p>
+            <p class="mb-1">Made with lots of ❤️ from Australia 🦘</p>
+            <p class="mb-0">&copy; Copyright <span id="copyright-date"></span>, Hypercube <img src="./Assets/black_symbol.png"
+                alt="Hypercube logo" style="
+                height: 1rem;
+                width: 1rem;" /></p>
+        </div>
+    </footer>
+
+  <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+    integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+    crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+    integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+    crossorigin="anonymous"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+    integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+    crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW"
+    crossorigin="anonymous"></script>
+  <script src="./penroseTiling.js"></script>
+
+</body>
+</html>

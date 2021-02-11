@@ -1,0 +1,169 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="">
+  <meta name="generator" content="Hugo 0.79.0">
+  <title>Hypercube | Die Hard problem</title>
+
+  <!-- Bootstrap core CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
+
+  <link rel="stylesheet" href="./index.css">
+</head>
+
+<body>
+    <header>
+        <div class="collapse" id="navbarHeader" style="background-color:#1D5E3E;">
+          <div class="container">
+            <div class="row">
+              <div class="col-sm-8 col-md-7 py-4">
+                <h4 class="text-white">About</h4>
+                <p class="nav-About-Text">Made by a couple of Monash University students that love math a bit too much and have
+                  too much time on their hands.</p>
+                <p class="nav-About-Text">By: Harris Perdikoyiannis, William Zhang, James Vereker & Regan Harper</p>
+              </div>
+              <div class="col-sm-4 offset-md-1 py-4">
+                <h4 class="text-white">Contact</h4>
+                <ul class="list-unstyled">
+                  <li><a href="https://github.com/HarrisAsync/MathsProject" class="text-white">View GitHub</a></li>
+                  <li><a href="mailto:wzha0123@student.monash.edu" class="text-white">Email us</a></li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="navbar navbar-dark shadow-sm">
+          <div class="container">
+            <a href="./index.html" class="navbar-brand d-flex align-items-center">
+              <img class="m-1" src="./Assets/colour_logo.png" width="157.5" height="30">
+              
+              
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarHeader"
+              aria-controls="navbarHeader" aria-expanded="false" aria-label="Toggle navigation">
+              <span class="navbar-toggler-icon" ></span>
+            </button>
+          </div>
+        </div>
+      </header>
+
+  <main>
+      <div class="container" style="background-color: #F5F5F5">
+          <div class="row" style="background-color: #FFFFFF"> <br> </div>
+          <div class="row"> <h1 style="font-family:Verdana"> The Fibonacci Flower </h1> </div>
+      </div>
+      <div class="container" style="background-color: #F5F5F5">
+          <div class="row"> <br> </div>
+      </div>
+
+      <div class="container" style="background-color: #F5F5F5">
+        <div class="row">
+            <div class="col-12 col-lg-8">
+                This particular problem was featured in the 1995 film <em> Die Hard With a Vengeance </em>, where the
+                antagonist Simon Gruber rigs an explosive underneath a fountain and it is up to the protagonists John
+                McClane and Zeus Carver to solve it. The problem involves two water jugs, one that can contain 5 gallons of water and
+                the other having a capacity of 3 gallons. The bomb will deactivate if John and Zeus can fill one of the
+                jugs with exactly 4 gallons of water. So how did our heroes do it? And if you were in that situation,
+                <i> would you be able to solve it? </i> <br>
+            </div>
+            <div class="col-12 col-lg-4">
+                <p style="color:#585858;font-family:Monaco;font-size:14px;text-align:center">"On the fountain are two jugs. Do you see them? 
+                    <br> A 5 gallon and a 3 gallon. Fill one jug with exactly 4 gallons of water. Place it on the scale, and the timer will stop.
+                    You must be precise. 1 ounce or more or less will result in detonation."  
+                    <br> <em>- Die Hard With a Vengeance </em> </p>
+            </div>
+        </div>
+      </div>
+
+        <div class="container" style="background-color: #F5F5F5">
+            <div class="row">
+                <div class="col-12">
+                  To find the solution we use a special parallelogram-shaped billiards table as shown in the following
+                  interactive diagram.
+                </div>
+                <div class="row"> <br> </div>
+                <div class="col-12 col-lg-7" style="padding-bottom: 45px;">
+                    <img src="./Assets/billiardsExample.png" class="w-100">
+                </div>
+            </div>
+        </div>
+
+        <div class="container" style="background-color: #F5F5F5">
+            <div class="row">
+                <div class="col-12">
+                    The diagram illustrates the numerous possibilities that two jugs of varying sizes have. When referring to the
+                    exact problem in the Die Hard film, The dimensions of the table are 5 by 3 units, the angle in the lower left corner 
+                    is 60 degrees. We coordinatize the table in the natural way, such that the lower left corner is the origin 
+                    and the upper right corner is the point with coordinates (5,3). We now shoot a ball located at the lower right corner 
+                    as indicated. As the ball travels across the table, we note down the coordinates of the points on the upper 
+                    and lower rail in the order that the ball bounces off them. 
+                  <br>
+                </div>
+            <div class="row"> <br> </div>
+                <div class="col-12 col-lg-8">
+                    This sequence of coordinates corresponds to a solution of our problem as follows: <br> (5,0) = fill the 5-gallon jug <br>
+                    (2,3) = fill the 3-gallon jug from the 5-gallon jug, leaving two gallons in the 5-gallon jug. <br>
+                    (2,0) = empty the 3-gallon jug <br> (0,2) = empty the two gallons in the 5-gallon jug into the 3-gallon jug. <br>
+                    (5,2) = fill the 5-gallon jug, etc. <br> <br>
+                    If we keep following the path, we notice that it traverses every single one of the lines drawn on the table once
+                    each before it hits the upper left corner (the exit), this means that the path of the ball includes the following points:
+                    <br> (1,0), (2,0), (3,0),(4,0), (5,0) and (0,3), (1,3), (2,3), (3,3), (4,3). <br>
+                </div>
+                <div class="col-10 col-lg-4" style="padding-top: 15px;">
+                    <img src="./Assets/billiardsExample.png" class="w-100">
+                </div>
+                <div class="row"> <br> </div>
+            </div>
+        </div>
+
+        <div class="container" style="background-color: #F5F5F5">
+            <div class="row">
+                <div class="col-12">
+                    We can conclude that even if Simon had asked John and Zeus to produce anything between 0 and 8 gallons 
+                    (in the cases 6, 7 and 8 they would have to put both jugs on the scales and no jugs for 0), 
+                    the puzzle would have had a solution. 
+                </div>
+            </div>
+        </div>
+
+
+    <div class="container" style="background-color: #F5F5F5">
+        <div class="row"> <br> </div>
+    </div>
+  </main>
+
+  <footer class="text-muted py-5">
+    <div class="container">
+      <p class="float-end mb-1">
+        <a href="#">Back to top</a>
+      </p>
+      <p class="mb-1">Made with lots of ❤️ from Australia 🦘</p>
+      <p class="mb-0">&copy; Copyright <span id="copyright-date"></span>, Hypercube <img src="./Assets/black_symbol.png"
+          alt="Hypercube logo" style="
+          height: 1rem;
+          width: 1rem;" /></p>
+    </div>
+  </footer>
+
+  <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+    integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+    crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+    integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+    crossorigin="anonymous"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+    integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+    crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW"
+    crossorigin="anonymous"></script>
+  <script src="./Scripts/particles.min.js"></script>
+  <script src="./index.js"></script>
+
+</body>
+
+</html>
