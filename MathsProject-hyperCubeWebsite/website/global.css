@@ -1,0 +1,59 @@
+.bd-placeholder-img {
+    font-size: 1.125rem;
+    text-anchor: middle;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    user-select: none;
+}
+
+@media (min-width: 768px) {
+    .bd-placeholder-img-lg {
+        font-size: 3.5rem;
+    }
+}
+
+.p5Canvas {
+    outline:none;
+}
+
+.white {
+    color: #e1e1e1;
+}
+
+#bTable {
+    background-color: #0f0f0f;
+    height: 100%;
+}
+
+.nav-About-Text {
+    color: #EDEDED !important;
+}
+
+.navbar {
+    background-color: #3FBA7D !important;
+}
+
+.navbar-toggler {
+    border-color: rgb(255 255 255 / 71%) !important;
+}
+
+.navbar-toggler-icon {
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgba%28255, 255, 255, 0.75%29' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e") !important;
+}
+
+.text-faded {
+    color: #adb5bb !important;
+}
+
+#particles-js {
+    position: absolute;
+    z-index: -1000;
+}
+
+main {
+    overflow: hidden;
+}
+
+.textSpacing {
+    padding: 10px 10px 10px 10px;
+}
