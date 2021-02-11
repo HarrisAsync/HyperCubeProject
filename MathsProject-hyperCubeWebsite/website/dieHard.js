@@ -9,6 +9,7 @@ $(document).ready(function () {
     $(document).keyup(function (e) {
         WIDTH_INPUT.val(jugX);
         HEIGHT_INPUT.val(jugY);
+        COORDS.val("ss");
     });
 });
 
