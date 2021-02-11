@@ -6,7 +6,7 @@ const SUBMIT = $("#submit");
 const COORDS = $("#coordinates");
 
 $(".p5Canvas").ready(function () {
-    $(document).keyup(function (e) {
+    $(document).keydown(function (e) {
         if (canvas.is(":focus")) {
             WIDTH_INPUT.val(jugX);
             HEIGHT_INPUT.val(jugY);
