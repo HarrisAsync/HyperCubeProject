@@ -13,6 +13,7 @@
     integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
 
   <link rel="stylesheet" href="./index.css">
+  <link rel="stylesheet" href="./penroseTiling.css">
 </head>
 
 <body>
@@ -41,8 +42,6 @@
           <div class="container">
             <a href="./index.html" class="navbar-brand d-flex align-items-center">
               <img class="m-1" src="./Assets/colour_logo.png" width="157.5" height="30">
-              
-              
             </a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarHeader"
               aria-controls="navbarHeader" aria-expanded="false" aria-label="Toggle navigation">
@@ -55,34 +54,59 @@
     <main>
         <!-- Main body -->
         <div class="container" style="background-color: #F5F5F5">
-            <div class="row" style="background-color: #FFFFFF;"> <br> </div>
-            <div class="row"> <h1 style="font-family:Verdana"> Penrose Tiling </h1> </div>
-            <div class="row"> <br> </div>
 
+            <!--Title-->
+            <div class="row"><h1 style="padding-top: 20px;"> Penrose Tiling </h1></div>
+
+            <!--Introduction-->
             <div class="row">
-                <div class="col-12">
-                    Named after the mathematician and physicist Roger Penrose, the Penrose Tiling is an example of an aperiodic tiling.
-                    Aperiodic tiling are a style of non-periodic tiling (tiles the plane in a non-repeating manner) which also possess
-                    the property of having no arbitrarily large periodic sections contained within it.
-                    Simply put, if tracing paper was used to copy the tiling pattern, if you were to move the paper,
-                    you would never be able to match the patterns (of the orignal tiling and tracing paper) despite direction or
-                    orientation. <br>
-                    Penrose tilings are formed with only 2 shapes, typically referred to a kite and a dart.
-                </div>
+              <!--Quick Introduction-->
+              <div class="col-md lead text-left textSpacing">
+                Named after the mathematician and physicist Roger Penrose, this tiling is aperiodic, meaning that the tiles on the plane do not contain arbitrarily large repeating patches. 
+                The tiling is typically formed with only 2 shapes, a kite and dart.
+              </div>
+              <!--Roger Penrose Quote-->
+              <div class="col-md textSpacing">
+                <figure class="text-end">
+                  <blockquote class="blockquote">
+                    <p>It is always the case, with mathematics, that a little direct experience of thinking over 
+                      things on your own can provide a much deeper understanding than merely reading about them.</p>
+                  </blockquote>
+                  <figcaption class="blockquote-footer">
+                    <cite title="Source Title">Roger Penrose</cite>
+                  </figcaption>
+                </figure>
+              </div>
             </div>
-
-
             
-
-            <div class="row"> <br> </div>
+            <!--Penrose Tiling visualisation INFO-->
             <div class="row">
-                <div class="col-12">
-                    <strong> References </strong> <br> <a href="http://static1.squarespace.com/static/5754f47fcf80a16bffa02c45/t/57c6b9c5b3db2bd469e914e2/1472641508501/Penrose-instructions.pdf">Maths Craft</a>
-                    <br> <a href="https://grahamshawcross.com/2012/10/12/periodic-and-non-periodic-tiling/">Graham Shawcross Architect</a> <br>
-                    <a href="https://mathworld.wolfram.com/AperiodicTiling.html">Mathworld - Wolfram</a>
-                </div>
+              <div class="text-center">
+                <h4>Click around on the visualisation</h4>
+              </div>
             </div>
-            <div class="row"> <br> </div>
+
+            <!--Penrose Tiling visualisation-->
+            <div class="row justify-content-md-center">
+              <iframe sandbox="allow-forms allow-scripts" scrolling="no" width="100%" height="500" style="border:none; padding-bottom: 20px;" src="https://dglittle.github.io/cdn/penrose002.html"></iframe>
+            </div>
+
+            <!--Visualisation credit-->
+            <div class="row">
+              <div class="text-left lead">
+                <p>Visualisation by Greg Little <br>
+                  <small><a target="_blank" style="text-decoration: none;" class="text-muted" href="https://github.com/dglittle">View GitHub</a></small>
+                </p>
+              </div>
+            </div>
+
+            <!--Page design credit-->
+            <div class="row">
+              <div class="text-left lead">
+                <small class="text-muted"><p>Page authors: Regan Harper and Harris Perdikoyiannis</p></small>
+              </div>
+            </div>
+
         </div>
     </main>
 
@@ -116,5 +140,4 @@
   <script src="./index.js"></script>
 
 </body>
-
 </html>
