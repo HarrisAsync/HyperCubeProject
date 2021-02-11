@@ -18,7 +18,7 @@ let controls = [WIDTH_INPUT, HEIGHT_INPUT, TARGET, SHOW_COORDS];
 
 for (let control of controls) {
     control.change(update);
-    control.keyup(update);
+    // control.keyup(update);
     control.on("change", update);
 }
 
