@@ -119,15 +119,30 @@
 
         </div>
         <div class="col-md-3" style="background-color: #0f0f0f;">
-          <form class="form-inline mt-3 white">
-            <label class="sr-only" for="table-width">Width</label>
-            <input type="number" class="form-control mt-1" id="table-width" value="5" min="0">
+          <form class="form-inline mt-3 white needs-validation" novalidate>
+            <div>
+              <label class="sr-only" for="table-width">Width</label>
+              <input type="number" class="form-control mt-1" id="table-width" value="5" min="0">
+              <div class="invalid-feedback">
+                Must be greater than 0.
+              </div>
+            </div>
 
-            <label class="mt-2" for="table-height">Height</label>
-            <input type="number" class="form-control mt-1" id="table-height" value="3" min="0">
-            
-            <label class="mt-4" for="target">Target</label>
-            <input type="number" class="form-control mt-1" id="target" value="4" min="0">
+            <div>
+              <label class="mt-2" for="table-height">Height</label>
+              <input type="number" class="form-control mt-1" id="table-height" value="3" min="0">
+              <div class="invalid-feedback">
+                Must be greater than 0.
+              </div>
+            </div>
+
+            <div>
+              <label class="mt-4" for="target">Target</label>
+              <input type="number" class="form-control mt-1" id="target" value="4" min="0">
+              <div class="invalid-feedback">
+                Must be greater than 0.
+              </div>
+            </div>
             
             <div class="form-check form-switch mt-3">
               <input class="form-check-input" type="checkbox" id="show-coords" checked>
