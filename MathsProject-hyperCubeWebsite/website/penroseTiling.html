@@ -6,7 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="description" content="">
   <meta name="generator" content="Hugo 0.79.0">
-  <title>Hypercube | Die Hard problem</title>
+  <title>Hypercube | Penrose Tiling</title>
 
   <!-- Bootstrap core CSS -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet"
@@ -56,75 +56,34 @@
         <!-- Main body -->
         <div class="container" style="background-color: #F5F5F5">
             <div class="row" style="background-color: #FFFFFF;"> <br> </div>
-            <div class="row"> <h1 style="font-family:Verdana"> The Die Hard problem </h1> </div>
+            <div class="row"> <h1 style="font-family:Verdana"> Penrose Tiling </h1> </div>
             <div class="row"> <br> </div>
-
 
             <div class="row">
                 <div class="col-12">
-                    This particular problem was featured in the 1995 film <em> Die Hard With a Vengeance </em>, where the
-                    antagonist Simon Gruber rigs an explosive underneath a fountain and it is up to the protagonists John
-                    McClane and Zeus Carver to solve it. The problem involves two water jugs, one that can contain 5 gallons of water and
-                    the other having a capacity of 3 gallons. The bomb will deactivate if John and Zeus can fill one of the
-                    jugs with exactly 4 gallons of water. So how did our heroes do it? And if you were in that situation,
-                    <i> would you be able to solve it? </i> <br>
-                </div>
-
-                <div class="row"> <br> </div>
-
-                <div class="col-12 col-lg-12">
-                    One way of visualising this problem is by using a parallelogram-shaped billiards table. By using the bottom right corner of
-                    the table as the origin and the top left corner as the exit. We now shoot a ball located at the lower right corner 
-                    as indicated. As the ball travels across the table, we note down the coordinates of the points on the upper 
-                    and lower rail in the order that the ball bounces off them.
-                </div>
-
-            <div class="row flex-column-reverse flex-md-row">
-                <div class="col-12 col-lg-8">
-                    When referring to the exact problem in the Die Hard film, the dimensions of the table are 5 by 3 units,
-                    this sequence of coordinates corresponds to a solution of our problem as follows: <br> (5,0) = fill the 5-gallon jug <br>
-                    (2,3) = fill the 3-gallon jug from the 5-gallon jug, leaving 2 gallons in the 5-gallon jug. <br>
-                    (2,0) = empty the 3-gallon jug <br> (0,2) = empty the two gallons in the 5-gallon jug into the 3-gallon jug. <br>
-                    (5,2) = fill the 5-gallon jug, etc. <br> (4,3) = fill the 3-gallon jug from the 5-gallon jug, 
-                    leaving 4 gallons in the 5-gallon jug. <br> <br>
-                </div>
-
-                <div class="col-12 col-lg-4" style="padding-top: 15px;">
-                    <img src="./Assets/billiardsExample.png" width="100%" height="auto">
-                </div>
-
-                <div class="col-12"><br></div>
-            </div>
-
-
-            <div class="row">
-                <div class="col-12"> 
-                    To find the solution we use a special parallelogram-shaped billiards table as shown in the following
-                    interactive diagram.
-                </div>
-                <div class="col-12 col-lg-12" style="padding-bottom: 45px; padding-top: 10px;">
-                    <img src="./Assets/Die Hard Thumbnail.png" width="100%" height="auto">
+                    Named after the mathematician and physicist Roger Penrose, the Penrose Tiling is an example of an aperiodic tiling.
+                    Aperiodic tiling are a style of non-periodic tiling (tiles the plane in a non-repeating manner) which also possess
+                    the property of having no arbitrarily large periodic sections contained within it.
+                    Simply put, if tracing paper was used to copy the tiling pattern, if you were to move the paper,
+                    you would never be able to match the patterns (of the orignal tiling and tracing paper) despite direction or
+                    orientation. <br>
+                    Penrose tilings are formed with only 2 shapes, typically referred to a kite and a dart.
                 </div>
             </div>
 
-            <div class="row">
-                <div class="col-12 col-lg-5" style="padding-bottom:10px;"> 
-                    <iframe width="100%" height="100%" src="https://www.youtube.com/embed/6cAbgAaEOVE" 
-                    frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" 
-                    allowfullscreen></iframe>
-                    <br><br><br><br><br>
-                </div>
-                <div class="col-0 col-lg-1"> </div>
-                <div class="col-12 col-lg-6">
-                    <p style="color:#585858;font-family:Monaco;font-size:16px;text-align:center">"On the fountain are two jugs. Do you see them? 
-                        <br> A 5 gallon and a 3 gallon. Fill one jug with exactly 4 gallons of water. Place it on the scale, and the timer will stop.
-                        You must be precise. 1 ounce or more or less will result in detonation."  
-                        <br> <em>- Die Hard With a Vengeance </em> </p> <br>
-                </div>
-            </div>
+
+            
 
             <div class="row"> <br> </div>
-
+            <div class="row">
+                <div class="col-12">
+                    <strong> References </strong> <br> <a href="http://static1.squarespace.com/static/5754f47fcf80a16bffa02c45/t/57c6b9c5b3db2bd469e914e2/1472641508501/Penrose-instructions.pdf">Maths Craft</a>
+                    <br> <a href="https://grahamshawcross.com/2012/10/12/periodic-and-non-periodic-tiling/">Graham Shawcross Architect</a> <br>
+                    <a href="https://mathworld.wolfram.com/AperiodicTiling.html">Mathworld - Wolfram</a>
+                </div>
+            </div>
+            <div class="row"> <br> </div>
+        </div>
     </main>
 
     <!-- Footer -->
