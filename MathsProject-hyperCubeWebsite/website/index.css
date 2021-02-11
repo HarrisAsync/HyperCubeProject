@@ -12,6 +12,10 @@
     }
 }
 
+.p5Canvas {
+    outline:none;
+}
+
 .white {
     color: #e1e1e1;
 }

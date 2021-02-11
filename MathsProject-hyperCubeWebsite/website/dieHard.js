@@ -4,6 +4,13 @@ const SHOW_COORDS = $("#show-coords");
 const TARGET = $("#target");
 const SUBMIT = $("#submit");
 
+$(document).ready(function () {
+    $(document).keyup(function (e) {
+        WIDTH_INPUT.val(jugX);
+        HEIGHT_INPUT.val(jugY);
+    });
+});
+
 let controls = [WIDTH_INPUT, HEIGHT_INPUT, TARGET, SHOW_COORDS];
 
 for (let control of controls) {
