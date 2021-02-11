@@ -6,19 +6,6 @@
     user-select: none;
 }
 
-canvas:focus{
-  outline: none;
-}
-
-.white {
-    color: #e1e1e1;
-}
-
-#bTable {
-    background-color: #0f0f0f;
-    height: 100%;
-}
-
 @media (min-width: 768px) {
     .bd-placeholder-img-lg {
         font-size: 3.5rem;
