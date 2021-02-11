@@ -5,10 +5,12 @@ const TARGET = $("#target");
 const SUBMIT = $("#submit");
 const COORDS = $("#coordinates");
 
-$(document).ready(function () {
+$(".p5Canvas").ready(function () {
     $(document).keyup(function (e) {
-        WIDTH_INPUT.val(jugX);
-        HEIGHT_INPUT.val(jugY);
+        if (canvas.is(":focus")) {
+            WIDTH_INPUT.val(jugX);
+            HEIGHT_INPUT.val(jugY);
+        }
     });
 });
 
