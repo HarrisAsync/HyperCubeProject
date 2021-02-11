@@ -12,6 +12,15 @@
     }
 }
 
+.white {
+    color: #e1e1e1;
+}
+
+#bTable {
+    background-color: #0f0f0f;
+    height: 100%;
+}
+
 .nav-About-Text {
     color: #EDEDED !important;
 }
