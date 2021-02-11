@@ -10,6 +10,8 @@ let maxColourBud = 200;
 let windW = 700; // Make sure dimentions are square
 let windH = 700; // Make sure dimentions are square
 
+
+let changeOccured = true;
 let fps = 60;
 var budArr;
 var k = 0;
@@ -134,6 +136,9 @@ function drawBud() {
 
 
 function draw() {
+    if (changeOccured) {
+        loop();
+    }
     // Draw Bud
     drawBud();
     // Draw connecting lines then Stop drawing or Increment k.
@@ -145,16 +150,19 @@ function draw() {
             drawAllConnectingLines();
         }
         noLoop();
+        changeOccured = false;
     }
 }
 
 function resetCanvas() {
     background(color('#000000'));
+    stroke(1);
     // Get Bud Locations
     budArr = findBudLocations(maxBuds);
     let bounds = findFlowerBounds(budArr);
     budArr = mapPoints(budArr,bounds[0],bounds[1],bounds[2],bounds[3])
     k = 0;
+    changeOccured = true;
 }
 
 function changeBudColor() {
