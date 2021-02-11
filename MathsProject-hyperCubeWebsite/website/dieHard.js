@@ -5,10 +5,12 @@ const TARGET = $("#target");
 const SUBMIT = $("#submit");
 const COORDS = $("#coordinates");
 
-$(document).ready(function () {
+$(".p5Canvas").ready(function () {
     $(document).keyup(function (e) {
-        WIDTH_INPUT.val(jugX);
-        HEIGHT_INPUT.val(jugY);
+        if (canvas.is(":focus")) {
+            WIDTH_INPUT.val(jugX);
+            HEIGHT_INPUT.val(jugY);
+        }
     });
 });
 
@@ -18,7 +20,7 @@ let controls = [WIDTH_INPUT, HEIGHT_INPUT, TARGET, SHOW_COORDS];
 
 for (let control of controls) {
     control.change(update);
-    control.keyup(update);
+    // control.keyup(update);
     control.on("change", update);
 }
 
