@@ -71,59 +71,16 @@
           the
           jugs with exactly 4 gallons of water.
         </div>
-        <!--Fibonacci Quote-->
-        <div class="col-md textSpacing">
-          <figure class="text-end">
-            <blockquote class="blockquote textSpacing">
-              <p>
-                "On the fountain are two jugs. Do you see them? A 5 gallon and a 3 gallon. Fill one jug with exactly 4
-                gallons of water. Place it on the scale, and the timer will stop. You must be precise. 1 ounce or more
-                or less will result in detonation."
-              </p>
-            </blockquote>
-            <figcaption class="blockquote-footer">
-              <cite title="Source Title">Simon Gruber in <cite title="Source Title">Die Hard With a Vengeance</cite></cite>
-            </figcaption>
-          </figure>
-        </div>
-      </div>
-
-      <div class="row">
-        <div class="col-12">
-          One way of visualising this problem is by using a parallelogram-shaped billiards table. By using the bottom
-          right corner of
-          the table as the origin and the top left corner as the exit. We now shoot a ball located at the lower right
-          corner
-          as indicated. As the ball travels across the table, we note down the coordinates of the points on the upper
-          and lower rail in the order that the ball bounces off them.
-        </div>
-      </div>
-
-      <div class="row flex-column-reverse flex-md-row">
-        <div class="col-12 col-lg-8">
-          When referring to the exact problem in the Die Hard film, the dimensions of the table are 5 by 3 units,
-          this sequence of coordinates corresponds to a solution of our problem as follows: <br> (5,0) = fill the
-          5-gallon jug <br>
-          (2,3) = fill the 3-gallon jug from the 5-gallon jug, leaving 2 gallons in the 5-gallon jug. <br>
-          (2,0) = empty the 3-gallon jug <br> (0,2) = empty the two gallons in the 5-gallon jug into the 3-gallon jug.
-          <br>
-          (5,2) = fill the 5-gallon jug, etc. <br> (4,3) = fill the 3-gallon jug from the 5-gallon jug,
-          leaving 4 gallons in the 5-gallon jug. <br> <br>
-        </div>
-
-        <div class="col-12 col-lg-4" style="padding-top: 15px;">
-          <img src="./Assets/billiardsExample.png" class="w-100">
-        </div>
-
       </div>
 
       <div class="row pb-1 mt-4">
-        <div class="col-12">
+        <div class="col-12 lead">
           To find the solution we use a special parallelogram-shaped billiards table as shown in the following
           interactive diagram.
         </div>
       </div>
 
+      <!-- Visualisation -->
       <div class="row pb-4">
         <div class="col-md-9 no-outline" id="bTable" style="height: 80vh"></div>
         <div class="col-md-3" style="background-color: #0f0f0f;">
@@ -164,17 +121,66 @@
         </div>
       </div>
 
+      <!-- Visualisation credit -->
       <div class="row">
         <div class="text-left lead">
           <p>Visualisation by William Zhang and Harris Perdikoyiannis<br>
           </p>
         </div>
       </div>
+
+      <!-- Explanation -->
       <div class="row">
-        <div class="text-left lead">
-          <small class="text-muted"><p>Page authors: Regan Harper and William Zhang</p></small>
+        <div class="col-12 lead">
+            One way of visualising this problem is by using a parallelogram-shaped billiards table. By using the bottom right corner of
+            the table as the origin and the top left corner as the exit. We shoot a ball located at the origin,
+             as it travels across the table, we note down the coordinates of the points.
         </div>
       </div>
+
+        <div class="row">
+            <div class="col-12 lead">
+                When referring to the exact problem in the Die Hard film, the solution to our problem is as follows:
+                <br> - Fill the 5-gallon jug <br>
+                - Fill the 3-gallon jug from the 5-gallon jug, leaving 2 gallons in the 5-gallon jug. <br>
+                - Empty the 3-gallon jug. <br> - Empty the 2 gallons in the 5-gallon jug into the 3-gallon jug. <br>
+                - Fill the 5-gallon jug. <br> - Fill the 3-gallon jug from the 5-gallon jug,
+                leaving 4 gallons in the 5-gallon jug. <br>
+            </div>
+        <div class="col-12"><br></div>
+        </div>
+
+        <!-- Video and quote -->
+        <div class="row">
+            <div class="col-12 col-lg-5" style="padding-bottom:10px;">
+                <iframe width="100%" height="100%" src="https://www.youtube.com/embed/2vdF6NASMiE"
+                frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+                allowfullscreen></iframe>
+                <br><br><br><br><br><br>
+            </div>
+            <div class="col-0 col-lg-1"> </div>
+            <div class="col-12 col-lg-6" style="padding-top:15px">
+                    <figure class="text-center">
+                        <blockquote class="blockquote">
+                            "On the fountain are two jugs. Do you see them? <br>
+                            A 5 gallon and a 3 gallon. Fill one jug with exactly 4 gallons of water. Place it on the scale, and the timer will stop.
+                            You must be precise. 1 ounce or more or less will result in detonation."
+                        </blockquote>
+                        <figcaption class="blockquote-footer">
+                        <cite title="Source Title">Die Hard With a Vengeance </cite>
+                        </figcaption>
+                    </figure>
+            </div>
+        </div>
+
+        <div class="row"><br></div>
+
+        <!-- Webpage credit -->
+        <div class="row">
+            <div class="text-left lead">
+                <small class="text-muted"><p>Page authors: Regan Harper and William Zhang</p></small>
+            </div>
+        </div>
     </div>
   </main>
 
