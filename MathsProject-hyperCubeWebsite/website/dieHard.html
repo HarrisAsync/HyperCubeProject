@@ -12,134 +12,182 @@
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet"
     integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
 
-  <link rel="stylesheet" href="./index.css">
+  <link rel="stylesheet" href="./global.css">
+
+  <script src="Scripts/viewed.js"></script>
 </head>
 
 <body>
-    <!-- Navigation -->
-    <header>
-        <div class="collapse" id="navbarHeader" style="background-color:#1D5E3E;">
-          <div class="container">
-            <div class="row">
-              <div class="col-sm-8 col-md-7 py-4">
-                <h4 class="text-white">About</h4>
-                <p class="nav-About-Text">Made by a couple of Monash University students that love math a bit too much and have
-                  too much time on their hands.</p>
-                <p class="nav-About-Text">By: Harris Perdikoyiannis, William Zhang, James Vereker & Regan Harper</p>
-              </div>
-              <div class="col-sm-4 offset-md-1 py-4">
-                <h4 class="text-white">Contact</h4>
-                <ul class="list-unstyled">
-                  <li><a href="https://github.com/HarrisAsync/MathsProject" class="text-white">View GitHub</a></li>
-                  <li><a href="mailto:wzha0123@student.monash.edu" class="text-white">Email us</a></li>
-                </ul>
-              </div>
-            </div>
+  <header>
+    <div class="collapse" id="navbarHeader" style="background-color:#1D5E3E;">
+      <div class="container">
+        <div class="row">
+          <div class="col-sm-8 col-md-7 py-4">
+            <h4 class="text-white">About</h4>
+            <p class="nav-About-Text">Made by a couple of Monash University students that love math a bit too much and
+              have
+              too much time on their hands.</p>
+            <p class="nav-About-Text">By: Harris Perdikoyiannis, William Zhang, James Vereker & Regan Harper</p>
+          </div>
+          <div class="col-sm-4 offset-md-1 py-4">
+            <h4 class="text-white">Contact</h4>
+            <ul class="list-unstyled">
+              <li><a href="https://github.com/HarrisAsync/HyperCubeProject" class="text-white">View GitHub</a></li>
+              <li><a href="mailto:wzha0123@student.monash.edu" class="text-white">Email us</a></li>
+            </ul>
           </div>
         </div>
-        <div class="navbar navbar-dark shadow-sm">
-          <div class="container">
-            <a href="./index.html" class="navbar-brand d-flex align-items-center">
-              <img class="m-1" src="./Assets/colour_logo.png" width="157.5" height="30">
-              
-              
-            </a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarHeader"
-              aria-controls="navbarHeader" aria-expanded="false" aria-label="Toggle navigation">
-              <span class="navbar-toggler-icon" ></span>
-            </button>
-          </div>
+      </div>
+    </div>
+    <div class="navbar navbar-dark shadow-sm">
+      <div class="container">
+        <a href="./index.html" class="navbar-brand d-flex align-items-center">
+          <img class="m-1" src="./Assets/colour_logo.png" width="157.5" height="30">
+
+        </a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarHeader"
+          aria-controls="navbarHeader" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <div class="container" style="background-color: #F5F5F5">
+      <!--Title-->
+      <div class="row">
+        <h1 style="padding-top: 20px; ">The Die Hard problem</h1>
+      </div>
+
+      <!--Introduction-->
+      <div class="row mb-3">
+        <!--Quick Introduction-->
+        <div class="col-md lead text-left textSpacing">
+          This particular problem was featured in the 1995 film <em> Die Hard With a Vengeance </em>, where the
+          antagonist Simon Gruber rigs an explosive underneath a fountain and it is up to the protagonists John
+          McClane and Zeus Carver to solve it. The problem involves two water jugs, one that can contain 5 gallons of
+          water and the other having a capacity of 3 gallons. The bomb will deactivate if John and Zeus can fill one of
+          the
+          jugs with exactly 4 gallons of water.
         </div>
-      </header>
-
-    <main>
-        <!-- Main body -->
-        <div class="container" style="background-color: #F5F5F5">
-            <div class="row" style="background-color: #FFFFFF;"> <br> </div>
-            <div class="row"> <h1 style="font-family:Verdana"> The Die Hard problem </h1> </div>
-            <div class="row"> <br> </div>
-
-
-            <div class="row">
-                <div class="col-12">
-                    This particular problem was featured in the 1995 film <em> Die Hard With a Vengeance </em>, where the
-                    antagonist Simon Gruber rigs an explosive underneath a fountain and it is up to the protagonists John
-                    McClane and Zeus Carver to solve it. The problem involves two water jugs, one that can contain 5 gallons of water and
-                    the other having a capacity of 3 gallons. The bomb will deactivate if John and Zeus can fill one of the
-                    jugs with exactly 4 gallons of water. So how did our heroes do it? And if you were in that situation,
-                    <i> would you be able to solve it? </i> <br>
-                </div>
-
-                <div class="row"> <br> </div>
-
-                <div class="col-12 col-lg-12">
-                    One way of visualising this problem is by using a parallelogram-shaped billiards table. By using the bottom right corner of
-                    the table as the origin and the top left corner as the exit. We now shoot a ball located at the lower right corner 
-                    as indicated. As the ball travels across the table, we note down the coordinates of the points on the upper 
-                    and lower rail in the order that the ball bounces off them.
-                </div>
-
-            <div class="row flex-column-reverse flex-md-row">
-                <div class="col-12 col-lg-8">
-                    When referring to the exact problem in the Die Hard film, the dimensions of the table are 5 by 3 units,
-                    this sequence of coordinates corresponds to a solution of our problem as follows: <br> (5,0) = fill the 5-gallon jug <br>
-                    (2,3) = fill the 3-gallon jug from the 5-gallon jug, leaving 2 gallons in the 5-gallon jug. <br>
-                    (2,0) = empty the 3-gallon jug <br> (0,2) = empty the two gallons in the 5-gallon jug into the 3-gallon jug. <br>
-                    (5,2) = fill the 5-gallon jug, etc. <br> (4,3) = fill the 3-gallon jug from the 5-gallon jug, 
-                    leaving 4 gallons in the 5-gallon jug. <br> <br>
-                </div>
-
-                <div class="col-12 col-lg-4" style="padding-top: 15px;">
-                    <img src="./Assets/billiardsExample.png" width="100%" height="auto">
-                </div>
-
-                <div class="col-12"><br></div>
+            <!-- Video and quote -->
+            <div class="col-md textSpacing">
+              <figure class="text-center">
+                <blockquote class="blockquote">
+                  "On the fountain are two jugs. Do you see them?
+                  A 5 gallon and a 3 gallon. Fill one jug with exactly 4 gallons of water. Place it on the scale, and the timer will stop.
+                  You must be precise. 1 ounce or more or less will result in detonation." 
+                  </blockquote>
+                  <figcaption class="blockquote-footer">
+                  <cite title="Source Title"><a target="_blank" style="text-decoration: none;" href="https://www.youtube.com/watch?fbclid=IwAR0Ap8Dy7sHzUwUVqkX1b7zyHD9zYxEHL7gHQp58kmyGjiP1H4kyt1iX4v0&v=2vdF6NASMiE&feature=youtu.be">Die Hard With a Vengeance</a></cite>
+                  </figcaption>
+              </figure>
             </div>
+      </div>
 
-
-            <div class="row">
-                <div class="col-12"> 
-                    To find the solution we use a special parallelogram-shaped billiards table as shown in the following
-                    interactive diagram.
-                </div>
-                <div class="col-12 col-lg-12" style="padding-bottom: 45px; padding-top: 10px;">
-                    <img src="./Assets/Die Hard Thumbnail.png" width="100%" height="auto">
-                </div>
-            </div>
-
-            <div class="row">
-                <div class="col-12 col-lg-5" style="padding-bottom:10px;"> 
-                    <iframe width="100%" height="100%" src="https://www.youtube.com/embed/6cAbgAaEOVE" 
-                    frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" 
-                    allowfullscreen></iframe>
-                    <br><br><br><br><br>
-                </div>
-                <div class="col-0 col-lg-1"> </div>
-                <div class="col-12 col-lg-6">
-                    <p style="color:#585858;font-family:Monaco;font-size:16px;text-align:center">"On the fountain are two jugs. Do you see them? 
-                        <br> A 5 gallon and a 3 gallon. Fill one jug with exactly 4 gallons of water. Place it on the scale, and the timer will stop.
-                        You must be precise. 1 ounce or more or less will result in detonation."  
-                        <br> <em>- Die Hard With a Vengeance </em> </p> <br>
-                </div>
-            </div>
-
-            <div class="row"> <br> </div>
-
-    </main>
-
-    <!-- Footer -->
-    <footer class="text-muted py-5">
-        <div class="container">
-            <p class="float-end mb-1">
-                <a href="#">Back to top</a>
-            </p>
-            <p class="mb-1">Made with lots of ❤️ from Australia 🦘</p>
-            <p class="mb-0">&copy; Copyright <span id="copyright-date"></span>, Hypercube <img src="./Assets/black_symbol.png"
-                alt="Hypercube logo" style="
-                height: 1rem;
-                width: 1rem;" /></p>
+      <div class="row pb-1 mt-4">
+        <div class="col-12 lead">
+          To find the solution we use a special parallelogram-shaped billiards table as shown in the following
+          interactive diagram.
         </div>
-    </footer>
+      </div>
+
+      <!-- Visualisation -->
+      <div class="row pb-4">
+        <div class="col-md-9 no-outline" id="bTable" style="height: 80vh"></div>
+        <div class="col-md-3" style="background-color: #0f0f0f;">
+          <form class="form-inline mt-3 white needs-validation" novalidate>
+            <div>
+              <label class="sr-only" for="table-width">Width</label>
+              <input type="number" class="form-control mt-1" id="table-width" value="5" min="0">
+              <div class="invalid-feedback">
+                Must be greater than 0.
+              </div>
+            </div>
+
+            <div>
+              <label class="mt-2" for="table-height">Height</label>
+              <input type="number" class="form-control mt-1" id="table-height" value="3" min="0">
+              <div class="invalid-feedback">
+                Must be greater than 0.
+              </div>
+            </div>
+
+            <div>
+              <label class="mt-4" for="target">Target</label>
+              <input type="number" class="form-control mt-1" id="target" value="4" min="0">
+              <div class="invalid-feedback">
+                Must be greater than 0.
+              </div>
+            </div>
+
+            <div class="form-check form-switch mt-3">
+              <input class="form-check-input" type="checkbox" id="show-coords" checked>
+              <label class="form-check-label" for="show-coords">Show coordinates</label>
+            </div>
+
+            <button type="submit" class="btn btn-primary mt-4 mb-4" style="resize: none;" id="submit">Submit</button>
+
+            <textarea class="form-control" id="coordinates" rows="3" readonly style="color: #363636; font-size: 0.85rem; resize: none;">(5.0,0.0), (2.0,3.0), (2.0,0.0), (0.0,2.0), (5.0,2.0), (4.0,3.0)</textarea>
+          </form>
+        </div>
+      </div>
+
+
+      <!-- Explanation -->
+      <div class="row">
+        <div class="col-12 lead">
+            One way of visualising this problem is by using a parallelogram-shaped billiards table. By using the bottom right corner of
+            the table as the origin and the top left corner as the exit. We shoot a ball located at the origin,
+             as it travels across the table, we note down the coordinates of the points.
+        </div>
+      </div>
+
+        <div class="row">
+            <div class="col-12 lead">
+                When referring to the exact problem in the Die Hard film, the solution to our problem is as follows:
+                <br> <strong>I.</strong> Fill the 5-gallon jug <br>
+                <strong>II.</strong> Fill the 3-gallon jug from the 5-gallon jug, leaving 2 gallons in the 5-gallon jug. <br>
+                <strong>III.</strong> Empty the 3-gallon jug. <br> <strong>IV.</strong> Empty the 2 gallons in the 5-gallon jug into the 3-gallon jug. <br>
+                <strong>V.</strong> Fill the 5-gallon jug. <br> <strong>VI.</strong> Fill the 3-gallon jug from the 5-gallon jug,
+                leaving 4 gallons in the 5-gallon jug. <br>
+            </div>
+        <div class="col-12"><br></div>
+        </div>
+
+
+        <div class="row"><br></div>
+
+        <!-- Visualisation credit -->
+      <div class="row">
+        <div class="text-left lead">
+          <p>Visualisation by William Zhang and Harris Perdikoyiannis<br>
+          </p>
+        </div>
+      </div>
+
+        <!-- Webpage credit -->
+        <div class="row">
+            <div class="text-left lead">
+                <small class="text-muted"><p>Page authors: Regan Harper and William Zhang</p></small>
+            </div>
+        </div>
+    </div>
+  </main>
+
+  <footer class="text-muted py-5">
+    <div class="container">
+      <p class="float-end mb-1">
+        <a href="#">Back to top</a>
+      </p>
+      <p class="mb-1">Made with lots of ❤️ from Australia 🦘</p>
+      <p class="mb-0">&copy; Copyright <span id="copyright-date"></span>, Hypercube <img src="./Assets/black_symbol.png"
+          alt="Hypercube logo" style="
+          height: 1rem;
+          width: 1rem;" /></p>
+    </div>
+  </footer>
 
   <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
     integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
@@ -153,9 +201,19 @@
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js"
     integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW"
     crossorigin="anonymous"></script>
-  <script src="./Scripts/particles.min.js"></script>
-  <script src="./index.js"></script>
-
+  <script src="Scripts/date.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/decimal.js/9.0.0/decimal.min.js"
+    integrity="sha512-zPQm8HS4Phjo9pUbbk+HPH3rSWu5H03NFvBpPf6D9EU2xasj0ZxhYAc/lvv/HVDWMSE1Autj19i6nZOfiVQbFQ=="
+    crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjs/9.1.0/math.js"
+    integrity="sha512-I0P+l8NrgTsaftmvg7m946nCfUNRc+UrMlfwiJSERXXmcnofik9gqOsG9PpsUNjqPH4KFXY+XNwmxsnlzmG/Mg=="
+    crossorigin="anonymous"></script>
+  <script src="Scripts/solver.js" type="text/javascript"></script>
+  <script src="Scripts/script.js" type="text/javascript"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.2.0/p5.min.js"
+    integrity="sha512-b/htz6gIyFi3dwSoZ0Uv3cuv3Ony7EeKkacgrcVg8CMzu90n777qveu0PBcbZUA7TzyENGtU+qZRuFAkfqgyoQ=="
+    crossorigin="anonymous"></script>
+  <script src="./dieHard.js"></script>
 </body>
 
 </html>

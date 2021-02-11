@@ -12,6 +12,19 @@
     }
 }
 
+.p5Canvas {
+    outline:none;
+}
+
+.white {
+    color: #e1e1e1;
+}
+
+#bTable {
+    background-color: #0f0f0f;
+    height: 100%;
+}
+
 .nav-About-Text {
     color: #EDEDED !important;
 }
@@ -39,4 +52,8 @@
 
 main {
     overflow: hidden;
+}
+
+.textSpacing {
+    padding: 10px 10px 10px 10px;
 }
