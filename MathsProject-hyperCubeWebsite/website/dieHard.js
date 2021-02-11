@@ -4,7 +4,7 @@ const SHOW_COORDS = $("#show-coords");
 const TARGET = $("#target");
 const SUBMIT = $("#submit");
 
-function update(e) {
+SUBMIT.click(function (e) {
     jugX = parseFloat(WIDTH_INPUT.val());
     jugY = parseFloat(HEIGHT_INPUT.val());
     seeCords = SHOW_COORDS.is(":checked");
@@ -25,12 +25,4 @@ function update(e) {
         return;
     }
     resetBoard();
-}
-
-let inputs = [WIDTH_INPUT, HEIGHT_INPUT, SHOW_COORDS, TARGET];
-
-for (let input of inputs) {
-    input.change(update);
-}
-
-SUBMIT.click(update);
+});
