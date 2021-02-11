@@ -3,22 +3,23 @@ const HEIGHT_INPUT = $("#table-height");
 const SHOW_COORDS = $("#show-coords");
 const TARGET = $("#target");
 const SUBMIT = $("#submit");
-const COORDS = $("coordinates");
+const COORDS = $("#coordinates");
 
 $(document).ready(function () {
     $(document).keyup(function (e) {
         WIDTH_INPUT.val(jugX);
         HEIGHT_INPUT.val(jugY);
-        COORDS.val("ss");
     });
 });
+
+setInterval(function () { COORDS.val(actualCordsArr.join(", ")); }, 100);
 
 let controls = [WIDTH_INPUT, HEIGHT_INPUT, TARGET, SHOW_COORDS];
 
 for (let control of controls) {
     control.change(update);
     control.keyup(update);
-    control.on("change", update)
+    control.on("change", update);
 }
 
 function update(e) {
