@@ -101,8 +101,20 @@ function mapPoints(points, xMin, xMax, yMin, yMax) {
 function setup() {
     //windW = windowWidth;
     //windH = windowHeight;
-    createCanvas(windW, windH);
+    let container = $("#container");
+    windW = container.height();
+    windH = container.height();
+    let cnv = createCanvas(windW, windH);
+    cnv.parent('container');
     frameRate(fps);
+    resetCanvas();
+}
+
+function windowResized() {
+    let container = $("#container");
+    windW = container.height();
+    windH = container.height();
+    resizeCanvas(windW, windH);
     resetCanvas();
 }
 
