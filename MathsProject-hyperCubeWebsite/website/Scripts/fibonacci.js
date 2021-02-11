@@ -1,7 +1,7 @@
 // Vars
 var c = 1; // Keep 1
 var maxBuds = 1000; // can never be 0
-var angle = 2;
+var angle = 137.5;
 let budRadius = 12;
 var budFillClick = [208,240,192];
 let findSpiral = true;
