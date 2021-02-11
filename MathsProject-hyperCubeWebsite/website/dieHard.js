@@ -3,6 +3,7 @@ const HEIGHT_INPUT = $("#table-height");
 const SHOW_COORDS = $("#show-coords");
 const TARGET = $("#target");
 const SUBMIT = $("#submit");
+const COORDS = $("coordinates");
 
 $(document).ready(function () {
     $(document).keyup(function (e) {

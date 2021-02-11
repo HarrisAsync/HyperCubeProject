@@ -10,4 +10,4 @@ if (raw_history == null) {
 
 history[window.location.pathname] = true;
 
-localStorage.setItem(VIEW_HISTORY_KEY, JSON.stringify(history));
+//localStorage.setItem(VIEW_HISTORY_KEY, JSON.stringify(history));
