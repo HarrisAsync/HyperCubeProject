@@ -179,6 +179,7 @@ function resetBoard() {
     background(color("#0F0F0F"));
     changeOccured = true;
     nLoop = 0;
+    actualCordsArr = [];
     loop();
 }
 
