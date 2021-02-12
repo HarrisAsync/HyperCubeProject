@@ -3,8 +3,8 @@ var c = 1; // Keep 1
 var maxBuds = 1000; // can never be 0
 var angle = 137.5;
 let budRadius = 12;
-var budFillClick = [208,240,192];
-let findSpiral = true;
+var budFillClick = [142, 229, 193];
+let findSpiral = false;
 let minColourBud = 100;
 let maxColourBud = 200;
 let windW = 700; // Make sure dimentions are square
@@ -12,6 +12,7 @@ let windH = 700; // Make sure dimentions are square
 
 let fps = 60;
 var budArr;
+var colouredBudsArr = [];
 var k = 0;
 
 const vw = Math.max(document.documentElement.clientWidth || 0, window.innerWidth || 0)
@@ -61,9 +62,10 @@ function drawConnectingLine(x,y) {
     let nearestX = nearestCords[0];
     let nearestY = nearestCords[1];
 
-    stroke(244,244,244);
+    stroke(244);
     strokeWeight(2.5);
     line(x,y,nearestX,nearestY);
+
 }
 
 function drawAllConnectingLines() {
@@ -122,9 +124,9 @@ function windowResized() {
     resetCanvas();
 }
 
-function drawBud() {
+function drawBud(budIndex) {
     // Get cords
-    let mappedPoint = budArr[k]
+    let mappedPoint = budArr[budIndex];
     let x = mappedPoint[0];
     let y = mappedPoint[1];
     // Draw bud 
@@ -139,7 +141,7 @@ function drawBud() {
 
 function draw() {
     // Draw Bud
-    drawBud();
+    drawBud(k);
     // Draw connecting lines then Stop drawing or Increment k.
     if (k + 1 < budArr.length) {
         k++;
@@ -162,6 +164,10 @@ function resetCanvas() {
 }
 
 function changeBudColor() {
+    if (findSpiral) {
+        return;
+    }
+
     // Check if mouse is inside the circle
     currentMX = mouseX;
     currentMY = mouseY;
@@ -169,11 +175,23 @@ function changeBudColor() {
     for (let index = 0; index < k+1; index++) {
         let d = TwoDDistance(currentMX, currentMY, budArr[index][0], budArr[index][1]);
         if (d < budRadius/2) {
-            push();
-            fill(budFillClick);
-            noStroke(); 
-            ellipse(budArr[index][0], budArr[index][1], budRadius);
-            pop();
+            if (colouredBudsArr.includes(budArr[index]))
+            {   
+                let cindex = colouredBudsArr.indexOf(budArr[index]);
+                colouredBudsArr.splice(cindex, 1);
+                stroke(0);
+                strokeWeight(1);
+                drawBud(index);
+
+            } else {
+                push();
+                stroke(0);
+                strokeWeight(1);
+                fill(budFillClick);
+                ellipse(budArr[index][0], budArr[index][1], budRadius);
+                pop();
+                colouredBudsArr.push(budArr[index]);
+            }
         }   
     }
 }
