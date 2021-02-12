@@ -36,6 +36,12 @@ function update(e) {
     laserThickness = parseFloat(LINETHICKNESS.val());
     stepSize = parseFloat(STEPSIZE.val());
 
+    // Change step size:
+    WIDTH_INPUT.attr("step", stepSize);
+    HEIGHT_INPUT.attr("step", stepSize);
+    TARGET.attr("step", stepSize);
+
+
     e.preventDefault();
 
     function validate(val, control) {
@@ -54,6 +60,12 @@ function update(e) {
     resetBoard();
 }
 
-SUBMIT.click(update);
-
 $("input[type='number']").inputSpinner();
+
+/*
+STEPSIZE.attr("step",'any');
+WIDTH_INPUT.attr("step",'any');
+HEIGHT_INPUT.attr("step",'any');
+TARGET.attr("step",'any');
+LINETHICKNESS.attr("step",'any');
+*/

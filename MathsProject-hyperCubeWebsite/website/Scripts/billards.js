@@ -218,10 +218,10 @@ let jugY = 3;
 let fps = 60;
 let water_target = bignumber(4);
 let seeCords = true;
-let laserThickness = 5;
+let laserThickness = 0.5;
 let stepSize = 1;
 
-let padding = 70;
+let padding = 40;
 let maxStroke = 9; // Not needed
 let minStroke = 0.1; // Not needed
 let windW = 1000;

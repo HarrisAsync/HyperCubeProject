@@ -68,32 +68,27 @@
           riddle
           where a jug must contain 4 gallons of water by only using a 3 gallon, and 5 gallon jug. The transitions
           required
-          are described in this <button class="astextBtn lead text-success btnRemoveOutline" data-toggle="modal" data-target=".bd-example-modal-lg" style="font-weight: 400;">solution</button>.
+          are described in this <button class="astextBtn lead text-success btnRemoveOutline" data-bs-toggle="modal" data-bs-target="#solutionModal" style="font-weight: 400;">solution</button>.
           One way of visualising this problem is by shooting a laser around a 60° parallelogram, with the bottom right
           corner
           of the table as the laser origin and the top left corner as the exit. As it bounces across the table, we note
           down the
           coordinates to indicate the state of both jugs.
 
-          <!-- Large modal Die Hard solution-->
-
-        <div class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel"
-          aria-hidden="true">
-          <div class="modal-dialog modal-lg">
+        <!-- Large modal Die Hard solution-->
+        <div class="modal fade" id="solutionModal" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+          <div class="modal-dialog">
             <div class="modal-content">
+              <!--Header-->
               <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLongTitle" style="color: #3FBA7D;">The solution to our Die
-                  Hard problem is as follows:</h5>
-                <button type="button" class="close astextBtn" data-dismiss="modal" aria-label="Close">
-                  <span aria-hidden="true">&times;</span>
-                </button>
+                <h5 class="modal-title" id="solutionModal" style="color: #3FBA7D;">The solution to our Die Hard problem is as follows:</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
               </div>
-
+              <!--Header-->
               <!-- Explanation -->
               <div class="row textSpacing">
                 <div class="col-auto">
                   <ul class="list-group list-group-flush">
-
                     <li class="list-group-item"><strong>I. </strong>Fill the 5-gallon jug</li>
                     <li class="list-group-item"><strong>II. </strong>Fill the 3-gallon jug from the 5-gallon jug,
                       leaving 2 gallons in the 5-gallon jug.</li>
@@ -106,10 +101,11 @@
                   </ul>
                 </div>
               </div>
+              <!-- Explanation -->
             </div>
           </div>
         </div>
-
+        <!-- Large modal Die Hard solution-->
 
         </div>
         <!-- Video and quote -->
@@ -140,13 +136,13 @@
       </div>
 
       <!-- Visualisation -->
-      <div class="row pb-4">
+      <div class="row justify-content-md-center">
         <div class="col-md-9 no-outline" id="bTable" style="height: 80vh"></div>
         <div class="col-md-3" style="background-color: #0f0f0f;">
           <form class="form-inline mt-3 white needs-validation" novalidate>
             <div>
               <label class="sr-only" for="table-width">Jug X</label>
-              <input type="number" class="form-control" id="table-width" value="5" min="0">
+              <input type="number" class="form-control" id="table-width" value="5" min="0" step="any">
               <div class="invalid-feedback">
                 Must be greater than 0.
               </div>
@@ -154,7 +150,7 @@
 
             <div>
               <label class="mt-2" for="table-height">Jug Y</label>
-              <input type="number" class="form-control" id="table-height" value="3" min="0">
+              <input type="number" class="form-control" id="table-height" value="3" min="0" step="any">
               <div class="invalid-feedback">
                 Must be greater than 0.
               </div>
@@ -162,25 +158,55 @@
 
             <div>
               <label class="mt-4" for="target">Target</label>
-              <input type="number" class="form-control" id="target" value="4" min="0">
+              <input type="number" class="form-control" id="target" value="4" min="0" step="any">
               <div class="invalid-feedback">
                 Must be greater than 0.
               </div>
             </div>
 
-            <div>
-              <label class="mt-4" for="target">Step Size</label>
-              <input type="number" class="form-control" id="step-size" value="1" min="0">
-              <div class="invalid-feedback">
-                Must be greater than 0.
-              </div>
-            </div>
+
 
             <div>
-              <label class="mt-4" for="target">Line Thickness</label>
-              <input type="number" class="form-control" id="line-thickness" value="0.5" min="0">
-              <div class="invalid-feedback">
-                Must be greater than 0.
+              <!-- Settings Modal button-->
+              <button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#settingsModel" style="margin-top: 20px;">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-gear-fill" viewBox="0 0 16 16">
+                  <path d="M9.405 1.05c-.413-1.4-2.397-1.4-2.81 0l-.1.34a1.464 1.464 0 0 1-2.105.872l-.31-.17c-1.283-.698-2.686.705-1.987 1.987l.169.311c.446.82.023 1.841-.872 2.105l-.34.1c-1.4.413-1.4 2.397 0 2.81l.34.1a1.464 1.464 0 0 1 .872 2.105l-.17.31c-.698 1.283.705 2.686 1.987 1.987l.311-.169a1.464 1.464 0 0 1 2.105.872l.1.34c.413 1.4 2.397 1.4 2.81 0l.1-.34a1.464 1.464 0 0 1 2.105-.872l.31.17c1.283.698 2.686-.705 1.987-1.987l-.169-.311a1.464 1.464 0 0 1 .872-2.105l.34-.1c1.4-.413 1.4-2.397 0-2.81l-.34-.1a1.464 1.464 0 0 1-.872-2.105l.17-.31c.698-1.283-.705-2.686-1.987-1.987l-.311.169a1.464 1.464 0 0 1-2.105-.872l-.1-.34zM8 10.93a2.929 2.929 0 1 1 0-5.86 2.929 2.929 0 0 1 0 5.858z"></path>
+                </svg>
+                <span class="visually-hidden">Settings</span>
+              </button>
+            </div>
+
+
+            <!-- Settings Modal -->
+            <div class="modal fade" id="settingsModel" tabindex="-1" aria-labelledby="settingsModalLabel" aria-hidden="true">
+              <div class="modal-dialog">
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <h5 class="modal-title text-success" id="settingModalLabel">Visualisation settings</h5>
+                  </div>
+                  <div class="modal-body">
+                    <div>
+                      <label class="mt-4 text-success" for="step-size">Step Size</label>
+                      <input type="number" class="form-control" id="step-size" value="0.5" min="0" step="any">
+                      <div class="invalid-feedback">
+                        Must be greater than 0.
+                      </div>
+                    </div>
+        
+                    <div>
+                      <label class="mt-4 text-success" for="line-thickness">Line Thickness</label>
+                      <input type="number" class="form-control" id="line-thickness" value="0.5" min="0.1" step="any">
+                      <div class="invalid-feedback">
+                        Must be greater than 0.
+                      </div>
+                    </div>
+                  </div>
+                  <div class="modal-footer">
+                    <div class="btn-group">
+                      <button type="button" class="btn btn-sm btn-outline-success" data-bs-dismiss="modal">Close</button>
+                    </div>
+                  </div>
+                </div>
               </div>
             </div>
 
@@ -189,8 +215,6 @@
               <input class="form-check-input" type="checkbox" id="show-coords" checked>
               <label class="form-check-label" for="show-coords">Show coordinates</label>
             </div>
-
-            <button type="submit" class="btn btn-primary mt-4 mb-4" style="resize: none;" id="submit">Submit</button>
 
             <textarea class="form-control mb-3" id="coordinates" rows="3" readonly
               style="color: #363636; font-size: 0.85rem; resize: none;">(5.0,0.0), (2.0,3.0), (2.0,0.0), (0.0,2.0), (5.0,2.0), (4.0,3.0)</textarea>
