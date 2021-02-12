@@ -200,6 +200,8 @@ function mouseClicked() {
     changeBudColor();
 }
 
+/*
 function mouseDragged() {
     changeBudColor();
 }
+*/
