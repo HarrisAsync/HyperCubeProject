@@ -180,6 +180,7 @@ function resetBoard() {
     changeOccured = true;
     nLoop = 0;
     actualCordsArr = [];
+    frameRate(fps);
     loop();
 }
 
