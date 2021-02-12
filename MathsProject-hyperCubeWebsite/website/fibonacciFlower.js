@@ -31,16 +31,20 @@ let update_obj = {
 $(document).ready(function () {
     $("input[type='number']").inputSpinner();
 
-    update_obj.angle = GOLDEN_ANGLE;
-    update_obj.findSpiral = findSpiral;
+    this._angle = GOLDEN_ANGLE;
+    angle = GOLDEN_ANGLE;
+    ANGLE.val(GOLDEN_ANGLE);
+
+    this._findSpiral = findSpiral;
+    findSpiral = findSpiral;
+    SHOW_LINES.prop("checked", findSpiral);
+
     for (let control of controls) {
         control.change(function (e) {
             update_obj.angle = parseFloat(ANGLE.val());
             update_obj.findSpiral = SHOW_LINES.is(":checked");
         });
     };
-
-    SHOW_LINES.prop("checked", findSpiral);
 
     RESET.click(function (e) {
         update_obj.angle = GOLDEN_ANGLE;
