@@ -22,9 +22,6 @@ let update_obj = {
         return this._findSpiral
     },
     set findSpiral(new_val) {
-        if (new_val) {
-                
-        }
         this._findSpiral = new_val;
         findSpiral = new_val;
         resetCanvas();
