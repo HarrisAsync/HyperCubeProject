@@ -11,6 +11,7 @@ let windW = 700; // Make sure dimentions are square
 let windH = 700; // Make sure dimentions are square
 
 let fps = 60;
+let drawPerFram = 10;
 var budArr;
 var colouredBudsArr = [];
 var k = 0;
@@ -141,16 +142,19 @@ function drawBud(budIndex) {
 
 function draw() {
     // Draw Bud
+    let savedKIndex = k
     drawBud(k);
-    // Draw connecting lines then Stop drawing or Increment k.
-    if (k + 1 < budArr.length) {
-        k++;
-    } else {
-        if (findSpiral) {
-            // Draw all connecting lines
-            drawAllConnectingLines();
+    while (k < savedKIndex + drawPerFram) {
+        if (k + 1 >= budArr.length) {
+            if (findSpiral) {
+                // Draw all connecting lines
+                drawAllConnectingLines();
+            }
+            noLoop();
+            break;
         }
-        noLoop();
+        drawBud(k);
+        k++;
     }
 }
 
@@ -210,6 +214,4 @@ function mouseDragged() {
 }
 */
 
-
-// FIX COLOURS FOR RESET
 // FIX SPEED
