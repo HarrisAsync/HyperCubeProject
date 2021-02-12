@@ -40,6 +40,8 @@ $(document).ready(function () {
         });
     };
 
+    iSHOW_LINES.prop("checked", findSpiral);
+
     RESET.click(function (e) {
         update_obj.angle = GOLDEN_ANGLE;
     });
