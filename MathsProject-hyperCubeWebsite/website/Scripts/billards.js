@@ -210,26 +210,6 @@ function holdit(btn, method, start, speedup) {
     }
 };
 
-function keyPressed() {
-    if (!canvas.is(":focus")) {
-        return true;
-    }
-    if (keyCode === UP_ARROW) {
-        jugY++;
-    } else if (keyCode === DOWN_ARROW) {
-        if (jugY == 1) { return; }
-        jugY--;
-    }
-    if (keyCode === LEFT_ARROW) {
-        if (jugX == 1) { return; }
-        jugX--;
-    } else if (keyCode === RIGHT_ARROW) {
-        jugX++;
-    }
-    // Reset variables
-    resetBoard();
-}
-
 /////////////// Input variables ///////////////
 // User Input
 let numCollisions = 2;
@@ -239,7 +219,7 @@ let fps = 60;
 let water_target = bignumber(4);
 let seeCords = true;
 let laserThickness = 5;
-
+let stepSize = 1;
 
 let padding = 70;
 let maxStroke = 9; // Not needed
