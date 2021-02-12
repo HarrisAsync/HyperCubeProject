@@ -230,7 +230,7 @@
 
             function calcStep(step) {
                 if (isNaN(value)) {
-                    value = 0
+                    value = math.bignnumber(0);
                 }
                 //setValue(Math.round(value / step) * step + step)
                 setValue(value.add(step))
