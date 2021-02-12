@@ -57,3 +57,13 @@ main {
 .textSpacing {
     padding: 10px 10px 10px 10px;
 }
+
+.astextBtn {
+    background:none;
+    border:none;
+    margin:0;
+    padding:0;
+    cursor: pointer;
+    box-shadow: none;
+    outline: none;
+}

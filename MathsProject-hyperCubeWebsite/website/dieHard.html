@@ -64,12 +64,44 @@
       <div class="row mb-3">
         <!--Quick Introduction-->
         <div class="col-md lead text-left textSpacing">
-          This particular problem was featured in the 1995 film <em> Die Hard With a Vengeance </em>, where the
-          antagonist Simon Gruber rigs an explosive underneath a fountain and it is up to the protagonists John
-          McClane and Zeus Carver to solve it. The problem involves two water jugs, one that can contain 5 gallons of
-          water and the other having a capacity of 3 gallons. The bomb will deactivate if John and Zeus can fill one of
-          the
-          jugs with exactly 4 gallons of water.
+          This particular problem was debuted in the 1995 film<em> Die Hard With a Vengeance</em>, and featured the formation of
+          4 gal from transitions between a 5 gal and 3 gal jug. The transitions required are described in this <button class="astextBtn lead text-success" data-toggle="modal" data-target=".bd-example-modal-lg">solution</button>. 
+          One way of visualising this problem is by shooting a laser around a 60 degree parallelogram, 
+          with the bottom right corner of the table as the laser origin and the top left corner as the exit.
+          As it bounces across the table, we note down the coordinates of the points to indicate the state both jugs.
+
+          <!-- Large modal Die Hard solution-->
+          
+          
+          <div class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+            <div class="modal-dialog modal-lg">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h5 class="modal-title" id="exampleModalLongTitle" style="color: #3FBA7D;">The solution to our Die Hard problem is as follows:</h5>
+                  <button type="button" class="close astextBtn" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                  </button>
+                </div>
+
+                <!-- Explanation -->
+                <div class="row textSpacing">
+                  <div class="col-auto">
+                    <ul class="list-group list-group-flush">
+
+                      <li class="list-group-item"><strong>I. </strong>Fill the 5-gallon jug</li>
+                      <li class="list-group-item"><strong>II. </strong>Fill the 3-gallon jug from the 5-gallon jug, leaving 2 gallons in the 5-gallon jug.</li>
+                      <li class="list-group-item"><strong>III. </strong>Empty the 3-gallon jug.</li>
+                      <li class="list-group-item"><strong>IV. </strong>Empty the 2 gallons in the 5-gallon jug into the 3-gallon jug.</li>
+                      <li class="list-group-item"><strong>V. </strong>Fill the 5-gallon jug.</li>
+                      <li class="list-group-item"><strong>VI. </strong>Fill the 3-gallon jug from the 5-gallon jug, leaving 4 gallons in the 5-gallon jug.</li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+
         </div>
         <!-- Video and quote -->
         <div class="col-md textSpacing">
@@ -89,10 +121,12 @@
         </div>
       </div>
 
+
+
       <!--Flower visualisation INFO-->
       <div class="row">
         <div class="text-center">
-          <h4>To find the solution we use a parallelogram-shaped billiards table</h4>
+          <h4>Find a solution to your jug problem!</h4>
         </div>
       </div>
 
@@ -138,49 +172,23 @@
         </div>
       </div>
 
-
-      <!-- Explanation -->
+      <!-- Visualisation credit -->
       <div class="row">
-        <div class="col-12 lead">
-          One way of visualising this problem is by using a parallelogram-shaped billiards table. By using the bottom
-          right corner of
-          the table as the origin and the top left corner as the exit. We shoot a ball located at the origin,
-          as it travels across the table, we note down the coordinates of the points.
+        <div class="text-left lead">
+          <p>Visualisation by William Zhang and Harris Perdikoyiannis<br>
+          </p>
         </div>
       </div>
 
+      <!-- Webpage credit -->
       <div class="row">
-        <div class="col-12 lead">
-          <strong>The solution to our Die Hard problem is as follows:</strong>
-          <br> <strong>I.</strong> Fill the 5-gallon jug <br>
-          <strong>II.</strong> Fill the 3-gallon jug from the 5-gallon jug, leaving 2 gallons in the 5-gallon jug. <br>
-          <strong>III.</strong> Empty the 3-gallon jug. <br> <strong>IV.</strong> Empty the 2 gallons in the 5-gallon
-          jug into the 3-gallon jug. <br>
-          <strong>V.</strong> Fill the 5-gallon jug. <br> <strong>VI.</strong> Fill the 3-gallon jug from the 5-gallon
-          jug,
-          leaving 4 gallons in the 5-gallon jug. <br>
-        </div>
-        <div class="col-12"><br></div>
-
-        <div class="row"><br></div>
-
-        <!-- Visualisation credit -->
-        <div class="row">
-          <div class="text-left lead">
-            <p>Visualisation by William Zhang and Harris Perdikoyiannis<br>
-            </p>
-          </div>
-        </div>
-
-        <!-- Webpage credit -->
-        <div class="row">
-          <div class="text-left lead">
-            <small class="text-muted">
-              <p>Page authors: Regan Harper and William Zhang</p>
-            </small>
-          </div>
+        <div class="text-left lead">
+          <small class="text-muted">
+            <p>Page authors: Regan Harper and William Zhang</p>
+          </small>
         </div>
       </div>
+
     </div>
   </main>
 
