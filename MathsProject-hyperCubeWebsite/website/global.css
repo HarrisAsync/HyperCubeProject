@@ -12,8 +12,39 @@
     }
 }
 
+:root {
+    --radi: 0.25em;
+}
+
+input[inputmode="decimal"] {
+    border: none !important;
+}
+
+.btn-increment,
+.btn-decrement {
+    border: none;
+    border-radius: 0 !important;
+    background-color: #0d6efd;
+    color: #fff;
+}
+
+.btn-increment:hover,
+.btn-decrement:hover {
+    background-color: #0b5ed7;
+}
+
+.btn-increment {
+    border-top-right-radius: var(--radi) !important;
+    border-bottom-right-radius: var(--radi) !important;
+}
+
+.btn-decrement {
+    border-top-left-radius: var(--radi) !important;
+    border-bottom-left-radius: var(--radi) !important;
+}
+
 .p5Canvas {
-    outline:none;
+    outline: none;
 }
 
 .white {
@@ -59,10 +90,10 @@ main {
 }
 
 .astextBtn {
-    background:none;
-    border:none;
-    margin:0;
-    padding:0;
+    background: none;
+    border: none;
+    margin: 0;
+    padding: 0;
     cursor: pointer;
     box-shadow: none;
     outline: none;
@@ -73,4 +104,9 @@ main {
     box-shadow: none;
 }
 
-a:active, a:focus { outline: 0; border: none; -moz-outline-​style: none; }
+a:active,
+a:focus {
+    outline: 0;
+    border: none;
+    -moz-outline-​style: none;
+}

@@ -48,3 +48,5 @@ function update(e) {
 }
 
 SUBMIT.click(update);
+
+$("input[type='number']").inputSpinner();

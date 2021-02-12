@@ -64,21 +64,28 @@
       <div class="row mb-3">
         <!--Quick Introduction-->
         <div class="col-md lead text-left textSpacing">
-          This particular problem was debuted in the 1995 film<em> Die Hard With a Vengeance</em>, which featured a riddle 
-          where a jug must contain 4 gallons of water by only using a 3 gallon, and 5 gallon jug. The transitions required
-           are described in this <button class="astextBtn lead text-success btnRemoveOutline" data-toggle="modal" data-target=".bd-example-modal-lg" style="font-weight: 400;">solution</button>. 
-          One way of visualising this problem is by shooting a laser around a 60° parallelogram, with the bottom right corner 
-          of the table as the laser origin and the top left corner as the exit. As it bounces across the table, we note down the 
+          This particular problem was debuted in the 1995 film<em> Die Hard With a Vengeance</em>, which featured a
+          riddle
+          where a jug must contain 4 gallons of water by only using a 3 gallon, and 5 gallon jug. The transitions
+          required
+          are described in this <button class="astextBtn lead text-success btnRemoveOutline" data-toggle="modal"
+            data-target=".bd-example-modal-lg" style="font-weight: 400;">solution</button>.
+          One way of visualising this problem is by shooting a laser around a 60° parallelogram, with the bottom right
+          corner
+          of the table as the laser origin and the top left corner as the exit. As it bounces across the table, we note
+          down the
           coordinates to indicate the state of both jugs.
 
           <!-- Large modal Die Hard solution-->
-          
-          
-          <div class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+
+
+          <div class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel"
+            aria-hidden="true">
             <div class="modal-dialog modal-lg">
               <div class="modal-content">
                 <div class="modal-header">
-                  <h5 class="modal-title" id="exampleModalLongTitle" style="color: #3FBA7D;">The solution to our Die Hard problem is as follows:</h5>
+                  <h5 class="modal-title" id="exampleModalLongTitle" style="color: #3FBA7D;">The solution to our Die
+                    Hard problem is as follows:</h5>
                   <button type="button" class="close astextBtn" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                   </button>
@@ -90,11 +97,14 @@
                     <ul class="list-group list-group-flush">
 
                       <li class="list-group-item"><strong>I. </strong>Fill the 5-gallon jug</li>
-                      <li class="list-group-item"><strong>II. </strong>Fill the 3-gallon jug from the 5-gallon jug, leaving 2 gallons in the 5-gallon jug.</li>
+                      <li class="list-group-item"><strong>II. </strong>Fill the 3-gallon jug from the 5-gallon jug,
+                        leaving 2 gallons in the 5-gallon jug.</li>
                       <li class="list-group-item"><strong>III. </strong>Empty the 3-gallon jug.</li>
-                      <li class="list-group-item"><strong>IV. </strong>Empty the 2 gallons in the 5-gallon jug into the 3-gallon jug.</li>
+                      <li class="list-group-item"><strong>IV. </strong>Empty the 2 gallons in the 5-gallon jug into the
+                        3-gallon jug.</li>
                       <li class="list-group-item"><strong>V. </strong>Fill the 5-gallon jug.</li>
-                      <li class="list-group-item"><strong>VI. </strong>Fill the 3-gallon jug from the 5-gallon jug, leaving 4 gallons in the 5-gallon jug.</li>
+                      <li class="list-group-item"><strong>VI. </strong>Fill the 3-gallon jug from the 5-gallon jug,
+                        leaving 4 gallons in the 5-gallon jug.</li>
                     </ul>
                   </div>
                 </div>
@@ -138,7 +148,7 @@
           <form class="form-inline mt-3 white needs-validation" novalidate>
             <div>
               <label class="sr-only" for="table-width">Jug X</label>
-              <input type="number" class="form-control mt-1" id="table-width" value="5" min="0">
+              <input type="number" class="form-control" id="table-width" value="5" min="0">
               <div class="invalid-feedback">
                 Must be greater than 0.
               </div>
@@ -146,7 +156,7 @@
 
             <div>
               <label class="mt-2" for="table-height">Jug Y</label>
-              <input type="number" class="form-control mt-1" id="table-height" value="3" min="0">
+              <input type="number" class="form-control" id="table-height" value="3" min="0">
               <div class="invalid-feedback">
                 Must be greater than 0.
               </div>
@@ -154,7 +164,7 @@
 
             <div>
               <label class="mt-4" for="target">Target</label>
-              <input type="number" class="form-control mt-1" id="target" value="4" min="0">
+              <input type="number" class="form-control" id="target" value="4" min="0">
               <div class="invalid-feedback">
                 Must be greater than 0.
               </div>
@@ -212,11 +222,8 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
     integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
     crossorigin="anonymous"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
-    integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
-    crossorigin="anonymous"></script>
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js"
-    integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW"
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-b5kHyXgcpbZJO/tY9Ul7kGkf1S0CWuKcCD38l8YkeH8z8QjE0GmW1gYU5S9FOnJ0"
     crossorigin="anonymous"></script>
   <script src="Scripts/date.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/decimal.js/9.0.0/decimal.min.js"
@@ -230,6 +237,7 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.2.0/p5.min.js"
     integrity="sha512-b/htz6gIyFi3dwSoZ0Uv3cuv3Ony7EeKkacgrcVg8CMzu90n777qveu0PBcbZUA7TzyENGtU+qZRuFAkfqgyoQ=="
     crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap-input-spinner@1.17.2/src/bootstrap-input-spinner.min.js"></script>
   <script src="./dieHard.js"></script>
 </body>
 
