@@ -24,13 +24,13 @@ input[inputmode="decimal"] {
 .btn-decrement {
     border: none;
     border-radius: 0 !important;
-    background-color: #0d6efd;
+    background-color: #3FBA7D;
     color: #fff;
 }
 
 .btn-increment:hover,
 .btn-decrement:hover {
-    background-color: #0b5ed7;
+    background-color: #3FBA7D;
 }
 
 .btn-increment {
