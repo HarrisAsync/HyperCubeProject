@@ -230,10 +230,10 @@
 
             function calcStep(step) {
                 if (isNaN(value)) {
-                    value = math.bignnumber(0);
+                    value = math.bignumber(0);
                 }
                 //setValue(Math.round(value / step) * step + step)
-                setValue(value.add(step))
+                setValue(math.bignumber(value).add(step))
                 dispatchEvent($original, "input")
                 dispatchEvent($original, "change")
             }
