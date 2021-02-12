@@ -19,6 +19,7 @@
 input[inputmode="decimal"] {
     border: none !important;
     max-width: 40vw;
+    box-shadow: none !important;
 }
 
 .btn-increment,
