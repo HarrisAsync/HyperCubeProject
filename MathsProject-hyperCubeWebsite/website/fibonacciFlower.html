@@ -92,24 +92,37 @@
       </div>
 
       <!--Fibonacci visualisation-->
-      <div class="row justify-content-center">
-        <div class="p-2" id="container" style="height: 80vh; width: auto;">
+      <!-- d-flex justify-content-center -->
+      <div class="row">
+        <div class="col-md-2"></div>
+        <div class="col-md-5">
+          <div class="p-2" id="container" style="height: 80vh; width: auto;">
 
+          </div>
         </div>
-      </div>
+        <div class="col-md-3">
+          <!--Controls-->
+          <div class="row">
+            <div class="col-md-12">
+              <label class="mt-2" for="angle">Angle (degrees)</label>
+              <input type="number" class="form-control" id="angle" value="137.5" min="0" max="360">
+              <div class="invalid-feedback">
+                Must be greater than 0.
+              </div>
 
-      <!--Controls-->
-      <div>
-        <label class="mt-4" for="angle">Angle (degrees)</label>
-        <input type="number" class="form-control" id="angle" value="137.5" min="0" max="360">
-        <div class="invalid-feedback">
-          Must be greater than 0.
+              <div class="mt-3">
+                <button type="button" class="btn btn-primary" id="reset"
+                  style="display: inline-block;">Reset</button>
+
+                <div class="form-check form-switch ms-2" style="display: inline-block;">
+                  <input class="form-check-input" type="checkbox" id="show-lines">
+                  <label class="form-check-label" for="show-lines">Show lines</label>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
-      </div>
-      <button type="button" class="btn btn-primary" id="reset">Reset</button>
-      <div class="form-check form-switch mt-3">
-        <input class="form-check-input" type="checkbox" id="show-lines">
-        <label class="form-check-label" for="show-lines">Show lines</label>
+        <div class="col-md-2"></div>
       </div>
 
       <!--Visualisation credit-->
