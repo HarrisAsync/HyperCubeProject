@@ -44,6 +44,14 @@ function textCordSize(lenCollisionArr) {
     return m;
 }
 
+function getCurrentTextCord(colArr, h) {
+    let cords1 = findCoordinate(colArr[nLoop], h);
+    let acutalPoint1 = cords1[0];
+
+    // Text at actual point
+    return '(' + acutalPoint1.x.toFixed(1) + ',' + acutalPoint1.y.toFixed(1) + ')';
+}
+
 function drawLaser(colArrMapped, colArr, h) {
     // Colour and thickness
     stroke(color('#1C5E3E'));
@@ -65,7 +73,7 @@ function drawLaser(colArrMapped, colArr, h) {
     let txt2 = '(' + acutalPoint2.x.toFixed(1) + ',' + acutalPoint2.y.toFixed(1) + ')';
 
     // Push to an array, for display later
-    actualCordsArr.push(txt1);
+    actualCordsArr.push(txt2);
 
     // Display cords only if selected or small colArr
     if (seeCords) {
@@ -133,6 +141,10 @@ function draw() {
 
         // Get corners
         c = findCorners(heightBoard, lenBoard);
+
+        // Put first coord into array
+        actualCordsArr.push("(" + c[2].x.toFixed(1) + "," + c[2].y.toFixed(1) + ")");
+
         // Map the corner points relative to the size of the canvas
         mappedCorners = mapPoints(c, lenBoard, heightBoard, padding);
 

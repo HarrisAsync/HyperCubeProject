@@ -161,6 +161,9 @@ function resetCanvas() {
     let bounds = findFlowerBounds(budArr);
     budArr = mapPoints(budArr,bounds[0],bounds[1],bounds[2],bounds[3])
     k = 0;
+    stroke(0);
+    strokeWeight(1);
+    fill(budFillClick);
     loop();
 }
 
@@ -206,3 +209,7 @@ function mouseDragged() {
     changeBudColor();
 }
 */
+
+
+// FIX COLOURS FOR RESET
+// FIX SPEED
