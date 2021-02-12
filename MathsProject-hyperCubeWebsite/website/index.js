@@ -4,6 +4,7 @@ COPYRIGHT_DATE.text(new Date().getFullYear());
 /* ---- particles.js config ---- */
 var doit;
 runJSP();
+runJSP();
 
 window.onresize = function(){
   clearTimeout(doit);
