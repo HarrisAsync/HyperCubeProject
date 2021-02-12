@@ -53,6 +53,8 @@ function update(e) {
 
     laserThickness = parseFloat(LINE_THICKNESS.val());
 
+    update_step();
+
     e.preventDefault();
 
     function validate(val, control) {
