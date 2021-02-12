@@ -71,4 +71,6 @@ main {
 .btnRemoveOutline:focus {
     outline: none;
     box-shadow: none;
-  }
+}
+
+a:active, a:focus { outline: 0; border: none; -moz-outline-​style: none; }
