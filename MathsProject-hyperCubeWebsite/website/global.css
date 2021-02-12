@@ -21,6 +21,7 @@ input[inputmode="decimal"] {
     max-width: 40vw;
     box-shadow: none !important;
     z-index: unset !important;
+    background-color: #eaecee;
 }
 
 .btn-increment,
