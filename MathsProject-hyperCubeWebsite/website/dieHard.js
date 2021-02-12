@@ -14,6 +14,8 @@ $(".p5Canvas").ready(function () {
             HEIGHT_INPUT.val(jugY);
         }
     });
+    $("input[type='number']").inputSpinner();
+    update_step();
 });
 
 setInterval(function () { COORDS.val(actualCordsArr.join(", ")); }, 100);
@@ -23,7 +25,14 @@ let controls = [WIDTH_INPUT, HEIGHT_INPUT, TARGET, SHOW_COORDS, STEPSIZE, LINETH
 for (let control of controls) {
     control.change(update);
     // control.keyup(update);
-    control.on("change", update);
+    // control.on("change", update);
+}
+
+function update_step() {
+    stepSize = parseFloat(STEPSIZE.val());
+    WIDTH_INPUT.attr("step", stepSize);
+    HEIGHT_INPUT.attr("step", stepSize);
+    TARGET.attr("step", stepSize);
 }
 
 function update(e) {
@@ -34,13 +43,6 @@ function update(e) {
     water_target = bignumber(TARGET.val());
 
     laserThickness = parseFloat(LINETHICKNESS.val());
-    stepSize = parseFloat(STEPSIZE.val());
-
-    // Change step size:
-    WIDTH_INPUT.attr("step", stepSize);
-    HEIGHT_INPUT.attr("step", stepSize);
-    TARGET.attr("step", stepSize);
-
 
     e.preventDefault();
 
@@ -59,8 +61,6 @@ function update(e) {
     }
     resetBoard();
 }
-
-$("input[type='number']").inputSpinner();
 
 /*
 STEPSIZE.attr("step",'any');

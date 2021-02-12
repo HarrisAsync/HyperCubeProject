@@ -4,7 +4,7 @@ var maxBuds = 1000; // can never be 0
 var angle = 137.5;
 let budRadius = 12;
 var budFillClick = [142, 229, 193];
-let findSpiral = false;
+let findSpiral = true;
 let minColourBud = 100;
 let maxColourBud = 200;
 let windW = 700; // Make sure dimentions are square
@@ -161,6 +161,7 @@ function resetCanvas() {
     let bounds = findFlowerBounds(budArr);
     budArr = mapPoints(budArr,bounds[0],bounds[1],bounds[2],bounds[3])
     k = 0;
+    loop();
 }
 
 function changeBudColor() {

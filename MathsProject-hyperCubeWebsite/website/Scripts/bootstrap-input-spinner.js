@@ -177,7 +177,7 @@
                     value = NaN
                 } else {
                     //newValue = parseFloat(newValue)
-                    newValue = bignumber(newValue);
+                    newValue = math.bignumber(newValue);
                     //newValue = Math.min(Math.max(newValue, min), max)
                     newValue = math.min(math.max(newValue, min), max);
                     //newValue = Math.round(newValue * Math.pow(10, decimals)) / Math.pow(10, decimals)
