@@ -233,7 +233,7 @@ let seeCords = true;
 let laserThickness = 1.5;
 let stepSize = 1;
 
-let padding = 40;
+let padding = 50;
 let maxStroke = 9; // Not needed
 let minStroke = 0.1; // Not needed
 let windW = 1000;
