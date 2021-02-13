@@ -2,22 +2,7 @@ const COPYRIGHT_DATE = $("#copyright-date");
 COPYRIGHT_DATE.text(new Date().getFullYear());
 
 /* ---- particles.js config ---- */
-var doit;
-runJSP();
-runJSP();
-
-window.onresize = function(){
-  clearTimeout(doit);
-  doit = setTimeout(runJSP, 250);
-};
-
-function runJSP() {
-    var INTRO = $("#intro-section");
-    var PARTICLES = $("#particles-js");
-    PARTICLES.height(INTRO.height());
-    PARTICLES.width(INTRO.width());
-    runParticleJS();
-}
+$(document).ready(runParticleJS);
 
 function runParticleJS() {
     particlesJS("particles-js", {
