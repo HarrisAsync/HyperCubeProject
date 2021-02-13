@@ -109,8 +109,7 @@ function setup() {
     //windW = windowWidth;
     //windH = windowHeight;
     let container = $("#container");
-    let size = Math.min(container.width(), container.height());
-
+    let size = container.width()
     windW = size;
     windH = size;
     let cnv = createCanvas(windW, windH);
@@ -121,7 +120,7 @@ function setup() {
 
 function windowResized() {
     let container = $("#container");
-    let size = Math.min(container.width(), container.height());
+    let size = container.width();
     windW = size;
     windH = size;
     resizeCanvas(windW, windH);
