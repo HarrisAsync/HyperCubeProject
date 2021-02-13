@@ -1,8 +1,17 @@
 const COPYRIGHT_DATE = $("#copyright-date");
 COPYRIGHT_DATE.text(new Date().getFullYear());
 
+const INTRO = $("#intro-section");
+const PARTICLE = $("#particles-js");
+
 /* ---- particles.js config ---- */
-$(document).ready(runParticleJS);
+$(document).ready(function () {
+    PARTICLE.width(INTRO.width());
+    PARTICLE.height(INTRO.height());
+
+    runParticleJS();
+});
+
 
 function runParticleJS() {
     particlesJS("particles-js", {
