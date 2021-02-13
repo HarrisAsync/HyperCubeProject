@@ -2,7 +2,7 @@
 var c = 1; // Keep 1
 var maxBuds = 1000; // can never be 0
 var angle = 137.5;
-let budRadius = 12;
+
 var budFillClick = [142, 229, 193];
 let findSpiral = true;
 let minColourBud = 100;
@@ -18,6 +18,8 @@ var k = 0;
 
 const vw = Math.max(document.documentElement.clientWidth || 0, window.innerWidth || 0)
 const vh = Math.max(document.documentElement.clientHeight || 0, window.innerHeight || 0)
+
+let budRadius = 9;
 
 function findBudLocations(lim) {
     // Get the bud locations prior to drawing them
@@ -108,6 +110,7 @@ function setup() {
     //windH = windowHeight;
     let container = $("#container");
     let size = Math.min(container.width(), container.height());
+
     windW = size;
     windH = size;
     let cnv = createCanvas(windW, windH);
@@ -165,6 +168,10 @@ function resetCanvas() {
     let bounds = findFlowerBounds(budArr);
     budArr = mapPoints(budArr,bounds[0],bounds[1],bounds[2],bounds[3])
     k = 0;
+
+    // Set bug size to 2% of canvas width
+    budRadius = windW * 0.02
+
     stroke(0);
     strokeWeight(1);
     fill(budFillClick);
