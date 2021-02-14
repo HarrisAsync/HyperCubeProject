@@ -2,13 +2,13 @@ const COPYRIGHT_DATE = $("#copyright-date");
 COPYRIGHT_DATE.text(new Date().getFullYear());
 
 const INTRO = $("#intro-section");
-const TITLE = $("title");
+const TITLE = $("#title");
 const PARTICLE = $("#particles-js");
 
 /* ---- particles.js config ---- */
 $(document).ready(function () {
-    PARTICLE.width(TITLE.width());
-    PARTICLE.height(TITLE.height());
+    PARTICLE.width(INTRO.width());
+    PARTICLE.height(INTRO.height());
 
     runParticleJS();
 });
