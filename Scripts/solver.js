@@ -328,7 +328,7 @@ class Table {
                 return round(x, Decimal.ROUND_UP).lt(coordinates.top_left.x);
             }
 
-            this._walls.top.range_checker = (x, y) => (x, y) => {
+            this._walls.top.range_checker = (x, y) => {
                 return coordinates.top_left.x.lt(round(x, Decimal.ROUND_DOWN));
             }
 
