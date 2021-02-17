@@ -81,7 +81,7 @@ function drawLaser(colArrMapped, colArr, h) {
         textSize(10);
         fill(color('#e1e1e1'));
         text(txt1, colArrMapped[nLoop].x + sideOffset1.x, colArrMapped[nLoop].y + sideOffset1.y);
-        
+
         if (nLoop + 2 == colArrMapped.length) { fill(color('#78B798')); }
         text(txt2, colArrMapped[nLoop + 1].x + sideOffset2.x, colArrMapped[nLoop + 1].y + sideOffset2.y);
     }
@@ -142,8 +142,13 @@ function draw() {
         // Get corners
         c = findCorners(heightBoard, lenBoard);
 
-        // Put first coord into array
-        actualCordsArr.push("(" + c[2].x.toFixed(1) + "," + c[2].y.toFixed(1) + ")");
+        if (entry == "top_left") {
+            // Put first coord into array
+            actualCordsArr.push("(" + new Number(0).toFixed(1) + "," + jugY.toFixed(1) + ")");
+        } else {
+            // Put first coord into array
+            actualCordsArr.push("(" + jugX.toFixed(1) + "," + new Number(0).toFixed(1) + ")");
+        }
 
         // Map the corner points relative to the size of the canvas
         mappedCorners = mapPoints(c, lenBoard, heightBoard, padding);
