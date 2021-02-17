@@ -416,7 +416,7 @@ class Laser {
         let point;
         if (table.entry === ENTRY.bottom_right) {
             point = table.coordinates.bottom_right;
-            this._exit = table.coordinates.top_right;
+            this._exit = table.coordinates.top_left;
         } else {
             point = table.coordinates.top_left;
             this._exit = table.coordinates.bottom_right;
