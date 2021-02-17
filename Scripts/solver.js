@@ -19,12 +19,30 @@ const matrix = math.matrix;
 
 //const TRIANGLE_UNIT_HEIGHT = math.divide(math.sqrt(bignumber("3")), bignumber("2"));
 
-const DIRECTIONS = {
-    diagonal_up: math.tan(math.unit(120, "deg")),
-    diagonal_down: math.tan(math.unit(-120, "deg")),
-    straight_right: bignumber("0"),
+const GRADIENTS = {
+    major_diag: math.tan(math.unit(120, "deg")),
+    anti_diag: math.tan(math.unit(-120, "deg")),
+    flat: bignumber("0"),
     is_valid(direction) {
-        return (direction === this.diagonal_up || direction === this.diagonal_down || direction === this.straight_right);
+        return (direction === this.major_diag || direction === this.anti_diag || direction === this.flat);
+    },
+    validate(direction) {
+        if (!this.is_valid(direction)) {
+            throw new TypeError("Gradient is not a valid gradient");
+        }
+    }
+}
+
+const ENTRY = {
+    top_left: new Object(),
+    bottom_right: new Object(),
+    is_valid(entry) {
+        return (entry === this.top_left || entry === this.bottom_right);
+    },
+    validate(entry) {
+        if (!this.is_valid(entry)) {
+            throw new TypeError("Entry is not a valid entry");
+        }
     }
 }
 
@@ -218,9 +236,8 @@ class Linear_equation {
 
 class Wall {
     constructor(endpoint_1, endpoint_2, reflection_direction, range_checker = (x, y) => true) {
-        if (!DIRECTIONS.is_valid(reflection_direction)) {
-            throw new TypeError("Reflection state is not the correct reference");
-        }
+        GRADIENTS.validate(reflection_direction);
+
         if (!(endpoint_1 instanceof Point && endpoint_2 instanceof Point)) {
             throw new TypeError("Endpoints must be of type: Point");
         }
@@ -232,6 +249,9 @@ class Wall {
 
         //this._x_range = [math.min(endpoint_1.x, endpoint_2.x), math.max(endpoint_1.x, endpoint_2.x)];
         //this._y_range = [math.min(endpoint_1.y, endpoint_2.y), math.max(endpoint_1.y, endpoint_2.y)];
+    }
+    set range_checker(new_val) {
+        this._range_checker = new_val;
     }
     get range_checker() {
         return this._range_checker;
@@ -259,7 +279,7 @@ class Wall {
 }
 
 class Table {
-    constructor(tile_width, tile_height) {
+    constructor(tile_width, tile_height, entry) {
         if (!(Decimal.isDecimal(tile_width) && Decimal.isDecimal(tile_height))) {
             throw new TypeError("Values need to be of type: math.bignumber");
         }
@@ -268,6 +288,7 @@ class Table {
             throw new RangeError("Values must be greater than 0 and not infinity");
         }
 
+        this.entry = entry;
         this._tile_width = tile_width;
         this._tile_height = tile_height;
 
@@ -293,30 +314,62 @@ class Table {
         let coordinates = this._coordinates;
         let round = (val, mode) => bignumber(val.toPrecision(Table.ROUNDING_PRECISION, mode));
 
-        this._walls = {
-            left: new Wall(this.coordinates.top_left, this.coordinates.bottom_left, DIRECTIONS.straight_right, (x, y) => {
-                return round(x, Decimal.ROUND_UP).lt(coordinates.top_left.x);
-            }),
-            right: new Wall(this.coordinates.top_right, this.coordinates.bottom_right, DIRECTIONS.diagonal_up),
-            bottom: new Wall(this.coordinates.bottom_left, this.coordinates.bottom_right, DIRECTIONS.diagonal_up),
-            top: new Wall(this.coordinates.top_left, this.coordinates.top_right, DIRECTIONS.diagonal_down, (x, y) => {
-                return coordinates.top_left.x.lt(round(x, Decimal.ROUND_DOWN));
-            }),
-        }
-
         this._possible_reflections_map = new Map();
-        // ORDER MATTERS
-        this._possible_reflections_map.set(DIRECTIONS.diagonal_up, [this._walls.left, this._walls.top]);
-        this._possible_reflections_map.set(DIRECTIONS.diagonal_down, [this._walls.bottom]);
-        this._possible_reflections_map.set(DIRECTIONS.straight_right, [this._walls.right]);
+
+        if (this.entry === ENTRY.bottom_right) {
+            this._walls = {
+                left: new Wall(this.coordinates.top_left, this.coordinates.bottom_left, GRADIENTS.flat),
+                right: new Wall(this.coordinates.top_right, this.coordinates.bottom_right, GRADIENTS.major_diag),
+                bottom: new Wall(this.coordinates.bottom_left, this.coordinates.bottom_right, GRADIENTS.major_diag),
+                top: new Wall(this.coordinates.top_left, this.coordinates.top_right, GRADIENTS.anti_diag),
+            }
+
+            this._walls.left.range_checker = (x, y) => {
+                return round(x, Decimal.ROUND_UP).lt(coordinates.top_left.x);
+            }
+
+            this._walls.top.range_checker = (x, y) => (x, y) => {
+                return coordinates.top_left.x.lt(round(x, Decimal.ROUND_DOWN));
+            }
+
+            // ORDER MATTERS
+            this._possible_reflections_map.set(GRADIENTS.major_diag, [this._walls.left, this._walls.top]);
+            this._possible_reflections_map.set(GRADIENTS.anti_diag, [this._walls.bottom]);
+            this._possible_reflections_map.set(GRADIENTS.flat, [this._walls.right]);
+        } else {
+            this._walls = {
+                left: new Wall(this.coordinates.top_left, this.coordinates.bottom_left, GRADIENTS.major_diag),
+                right: new Wall(this.coordinates.top_right, this.coordinates.bottom_right, GRADIENTS.flat),
+                bottom: new Wall(this.coordinates.bottom_left, this.coordinates.bottom_right, GRADIENTS.anti_diag),
+                top: new Wall(this.coordinates.top_left, this.coordinates.top_right, GRADIENTS.major_diag),
+            }
+
+            this._walls.bottom.range_checker = (x, y) => {
+                return round(x, Decimal.ROUND_UP).lt(coordinates.bottom_right.x);
+            }
+
+            this._walls.right.range_checker = (x, y) => {
+                return coordinates.bottom_right.x.lt(round(x, Decimal.ROUND_DOWN));
+            }
+
+            // ORDER MATTERS
+            this._possible_reflections_map.set(GRADIENTS.major_diag, [this._walls.bottom, this._walls.right]);
+            this._possible_reflections_map.set(GRADIENTS.anti_diag, [this._walls.top]);
+            this._possible_reflections_map.set(GRADIENTS.flat, [this._walls.left]);
+        }
+    }
+    get entry() {
+        return this._entry;
+    }
+    set entry(new_val) {
+        ENTRY.validate(new_val);
+        this._entry = new_val;
     }
     static get ROUNDING_PRECISION() {
         return ROUNDING_PRECISION;
     }
     get_possible_collisions(direction) {
-        if (!DIRECTIONS.is_valid(direction)) {
-            throw new TypeError("Direction needs to be a valid direction");
-        }
+        GRADIENTS.validate(direction);
         return this._possible_reflections_map.get(direction);
     }
     get walls() {
@@ -351,17 +404,29 @@ class Table {
 }
 
 class Laser {
-    constructor(direction, point, table, target = bignumber(0)) {
-        this.direction = direction;
+    constructor(table, target = bignumber(0)) {
+        this.gradient = GRADIENTS.major_diag;
         this.table = table;
-        
+
         if (!(Decimal.isDecimal(target))) {
             throw new TypeError("Target needs to be of datatype: bignumber");
         }
 
         this._target = target;
-        this.equation = new Linear_equation().from_gradient_point(this.direction, point);
+        let point;
+        if (table.entry === ENTRY.bottom_right) {
+            point = table.coordinates.bottom_right;
+            this._exit = table.coordinates.top_right;
+        } else {
+            point = table.coordinates.top_left;
+            this._exit = table.coordinates.bottom_right;
+        }
+
+        this.equation = new Linear_equation().from_gradient_point(this.gradient, point);
         this._path = [point];
+    }
+    get exit() {
+        return this._exit;
     }
     get target() {
         return this._target;
@@ -384,14 +449,12 @@ class Laser {
         }
         this._table = new_value;
     }
-    get direction() {
-        return this._direction;
+    get gradient() {
+        return this._gradient;
     }
-    set direction(new_direction) {
-        if (!DIRECTIONS.is_valid(new_direction)) {
-            throw new TypeError("New value must be from direction")
-        }
-        this._direction = new_direction;
+    set gradient(new_gradient) {
+        GRADIENTS.validate(new_gradient);
+        this._gradient = new_gradient;
     }
     number_of_bounces() {
         return this._path.length - 1;
@@ -409,15 +472,13 @@ class Laser {
         return this._state;
     }
     set state(new_value) {
-        if (!DIRECTIONS.is_valid(new_value)) {
-            throw new RangeError("state must point to correct object from STATES constant");
-        }
+        GRADIENTS.validate(new_value);
         this._state = new_value;
     }
     collide(number_of_bounces) {
         for (let count = 0; count < number_of_bounces; count++) {
             let has_collided = false;
-            for (let wall of this.table.get_possible_collisions(this.direction)) {
+            for (let wall of this.table.get_possible_collisions(this.gradient)) {
                 let collision_result = wall.collide(this);
                 if (collision_result instanceof Point) {
                     let round = (num) => bignumber(num.toPrecision(Table.ROUNDING_PRECISION));
@@ -428,16 +489,16 @@ class Laser {
                         return true;
                     }
 
-                    this.direction = wall.reflection_direction;
+                    this.gradient = wall.reflection_direction;
                     this.add_point(collision_result);
-                    this.equation = new Linear_equation().from_gradient_point(this.direction, collision_result);
+                    this.equation = new Linear_equation().from_gradient_point(this.gradient, collision_result);
                     has_collided = true;
                     break;
                 }
             }
             if (has_collided === false) {
-                if (!(this.path[this.path.length - 1].eq(this.table.coordinates.top_left))) {
-                    this.path.push(this.table.coordinates.top_left);
+                if (!(this.path[this.path.length - 1].eq(this.exit))) {
+                    this.path.push(this.exit);
                 }
                 return true;
             }
@@ -449,8 +510,8 @@ class Laser {
 function solve_billards(width, length, number_of_bounces, target = bignumber(0)) {
     let t0 = performance.now()
 
-    let table = new Table(width, length);
-    let laser = new Laser(DIRECTIONS.diagonal_up, table.coordinates.bottom_right, table, target);
+    let table = new Table(width, length, ENTRY.top_left);
+    let laser = new Laser(GRADIENTS.major_diag, ENTRY.top_left, table, target);
     laser.collide(number_of_bounces);
 
     /*

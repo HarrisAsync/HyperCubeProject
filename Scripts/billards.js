@@ -131,10 +131,10 @@ function draw() {
         // Set Up k value
         k = math.sin(math.pi.div(6)).mul(jugY);
         // Initialise table
-        table = new Table(bignumber(jugX), bignumber(jugY));
+        table = new Table(bignumber(jugX), bignumber(jugY), ENTRY.top_left);
 
         // Initialise laser
-        laser = new Laser(DIRECTIONS.diagonal_up, table.coordinates.bottom_right, table, water_target);
+        laser = new Laser(table, water_target);
         // Get table dimentions
         lenBoard = table.actual_width.toNumber();
         heightBoard = table.actual_height.toNumber();
