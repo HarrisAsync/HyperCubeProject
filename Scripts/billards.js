@@ -116,9 +116,9 @@ function setup() {
     let cnv = createCanvas(windW, windH);
     canvas = $(cnv.canvas);
     canvas.attr("tabindex", 1);
-    canvas.keydown(function (e) {
-        e.preventDefault();
-    });
+    // canvas.keydown(function (e) {
+    //     e.preventDefault();
+    // });
     cnv.parent('bTable');
     background(color("#0F0F0F"));
     frameRate(fps);

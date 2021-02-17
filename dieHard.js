@@ -19,12 +19,12 @@ $(document).ready(function () {
 });
 
 $(".p5Canvas").ready(function () {
-    $(document).keyup(function (e) {
-        if (canvas.is(":focus")) {
-            WIDTH_INPUT.val(jugX);
-            HEIGHT_INPUT.val(jugY);
-        }
-    });
+    // $(document).keyup(function (e) {
+    //     if (canvas.is(":focus")) {
+    //         WIDTH_INPUT.val(jugX);
+    //         HEIGHT_INPUT.val(jugY);
+    //     }
+    // });
     $("input[type='number']").inputSpinner();
     update_step();
 });
