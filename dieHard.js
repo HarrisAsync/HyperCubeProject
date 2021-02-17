@@ -6,6 +6,7 @@ const SUBMIT = $("#submit");
 const STEPSIZE = $("#step-size");
 const LINE_THICKNESS = $("#line-thickness");
 const COORDS = $("#coordinates");
+const ENTRY_RADIO = $("input[name=entry_radio_options]");
 
 $(document).ready(function () {
     WIDTH_INPUT.val(jugX);
@@ -14,6 +15,7 @@ $(document).ready(function () {
     SHOW_COORDS.prop("checked", seeCords);
     LINE_THICKNESS.val(laserThickness);
     STEPSIZE.val(stepSize);
+    $("input[name=entry_radio_options][value=" + entry + "]").attr('checked', 'checked');
 });
 
 $(".p5Canvas").ready(function () {
@@ -29,7 +31,7 @@ $(".p5Canvas").ready(function () {
 
 setInterval(function () { COORDS.val(actualCordsArr.join(", ")); }, 100);
 
-let controls = [WIDTH_INPUT, HEIGHT_INPUT, TARGET, SHOW_COORDS, STEPSIZE, LINE_THICKNESS];
+let controls = [WIDTH_INPUT, HEIGHT_INPUT, TARGET, SHOW_COORDS, STEPSIZE, LINE_THICKNESS, ENTRY_RADIO];
 
 for (let control of controls) {
     control.change(update);
@@ -45,6 +47,8 @@ function update_step() {
 }
 
 function update(e) {
+    entry = $('input[name="entry_radio_options"]:checked').val();
+
     jugX = parseFloat(WIDTH_INPUT.val());
     jugY = parseFloat(HEIGHT_INPUT.val());
 

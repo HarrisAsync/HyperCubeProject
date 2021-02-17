@@ -131,7 +131,7 @@ function draw() {
         // Set Up k value
         k = math.sin(math.pi.div(6)).mul(jugY);
         // Initialise table
-        table = new Table(bignumber(jugX), bignumber(jugY), ENTRY.top_left);
+        table = new Table(bignumber(jugX), bignumber(jugY), ENTRY[entry]);
 
         // Initialise laser
         laser = new Laser(table, water_target);
@@ -232,6 +232,7 @@ let water_target = bignumber(4);
 let seeCords = true;
 let laserThickness = 1.5;
 let stepSize = 1;
+let entry = "top_left";
 
 let padding = 50;
 let maxStroke = 9; // Not needed
