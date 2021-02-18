@@ -19,6 +19,7 @@ $(document).ready(function () {
     LINE_THICKNESS.val(laserThickness);
     STEPSIZE.val(stepSize);
     $("input[name=entry_radio_options][value=" + entry + "]").attr('checked', 'checked');
+    $("input[type='number']").inputSpinner();
 });
 
 $(".p5Canvas").ready(function () {
@@ -28,7 +29,6 @@ $(".p5Canvas").ready(function () {
     //         HEIGHT_INPUT.val(jugY);
     //     }
     // });
-    $("input[type='number']").inputSpinner();
     update_step();
 });
 
@@ -79,6 +79,7 @@ function update(e) {
     if (!is_valid) {
         return;
     }
+
     resetBoard();
 }
 
