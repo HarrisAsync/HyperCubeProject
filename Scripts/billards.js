@@ -199,11 +199,7 @@ function scaleP(points, hBoard, lBoard) {
     let yGap = windH - hBoard*f - 2*padding;
     let xGap = windW - lBoard*f - 2*padding;
     for (point of points) {
-<<<<<<< Updated upstream
-        arr.push({ x: ((point.x) * f) + padding, y: ((Math.abs(point.y - hBoard)) * f) + padding });
-=======
         arr.push({ x: ((point.x)*f) + padding + (xGap/2), y: ((Math.abs(point.y-hBoard))*f) + padding + (yGap/2)});
->>>>>>> Stashed changes
     }
 
     return arr;
@@ -211,11 +207,7 @@ function scaleP(points, hBoard, lBoard) {
 
 function findScaleFactor(hBoard, lBoard) {
     let f = 0;
-<<<<<<< Updated upstream
-    while (((hBoard) * f) < windH - (padding * 2) && ((lBoard) * f) < windW - (padding * 2)) {
-=======
     while ( ( (hBoard) * f) < windH - (padding*2) && ( (lBoard) * f) < windW - (padding*2) ) {
->>>>>>> Stashed changes
         f += 0.01;
     }
 
