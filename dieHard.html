@@ -158,30 +158,32 @@
 
       <!-- Visualisation -->
       <div class="row">
-        <div class="col-lg-9 no-outline" id="bTable" style="height: auto; min-height: 80vh;"></div>
-        <div class="col-lg-3" style="background-color: #0f0f0f;">
+        <div class="col-md-9 no-outline" id="bTable" style="height: auto; min-height: 80vh;"></div>
+        <div class="col-md-3" style="background-color: #0f0f0f;">
           <form class="form-inline mt-3 white needs-validation" novalidate>
-            <div>
-              <label class="sr-only" for="table-width">Jug X</label>
-              <input type="number" class="form-control" id="table-width" value="5" min="0">
-              <div class="invalid-feedback">
-                Must be greater than 0.
+            <div class="row">
+              <div class="col-6 col-md-12 pt-1">
+                <label for="table-width">Jug X</label>
+                <input type="number" class="form-control" id="table-width" value="5" min="0">
+                <div class="invalid-feedback">
+                  Must be greater than 0.
+                </div>
               </div>
-            </div>
-
-            <div>
-              <label class="mt-2" for="table-height">Jug Y</label>
-              <input type="number" class="form-control" id="table-height" value="3" min="0">
-              <div class="invalid-feedback">
-                Must be greater than 0.
+  
+              <div class="col-6 col-md-12 pt-1">
+                <label for="table-height">Jug Y</label>
+                <input type="number" class="form-control" id="table-height" value="3" min="0">
+                <div class="invalid-feedback">
+                  Must be greater than 0.
+                </div>
               </div>
-            </div>
-
-            <div>
-              <label class="mt-4" for="target">Target</label>
-              <input type="number" class="form-control" id="target" value="4" min="0">
-              <div class="invalid-feedback">
-                Must be greater than 0.
+  
+              <div class="col-6 col-md-12 pt-1">
+                <label for="target">Target</label>
+                <input type="number" class="form-control" id="target" value="4" min="0">
+                <div class="invalid-feedback">
+                  Must be greater than 0.
+                </div>
               </div>
             </div>
 
