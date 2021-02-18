@@ -1,12 +1,12 @@
 * {
     margin: 0;
     padding: 0;
-    box-sizing:border-box;
+    box-sizing: border-box;
 }
 
 section {
     height: 100vh;
-    background: rgb(199,199,199);
+    background: rgb(199, 199, 199);
     display: flex;
     justify-content: center;
     align-items: center;

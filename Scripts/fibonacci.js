@@ -28,15 +28,15 @@ function findBudLocations(lim) {
         var a = n * (angle * Math.PI / 180);
         var r = c * Math.sqrt(n);
 
-        var x = r * Math.cos(a); 
+        var x = r * Math.cos(a);
         var y = r * Math.sin(a);
-        budLocationArr.push([x,y]);
+        budLocationArr.push([x, y]);
     }
     return budLocationArr;
 }
 
-function TwoDDistance(x1,y1, x2, y2) {
-    return Math.sqrt((x2-x1)**2 + (y2-y1)**2)
+function TwoDDistance(x1, y1, x2, y2) {
+    return Math.sqrt((x2 - x1) ** 2 + (y2 - y1) ** 2)
 }
 
 function getNearest(xTargert, yTarget) {
@@ -51,16 +51,16 @@ function getNearest(xTargert, yTarget) {
 
         // If the current bud is closer, set it as min
         let currentDis = TwoDDistance(x, y, xTargert, yTarget);
-        if (currentDis < minDis && currentDis!=0) {
+        if (currentDis < minDis && currentDis != 0) {
             minDis = currentDis;
             minX = x;
             minY = y;
         }
     }
-    return [minX,minY];
+    return [minX, minY];
 }
 
-function getSecondNearest(xTargert, yTarget,nearestBud) {
+function getSecondNearest(xTargert, yTarget, nearestBud) {
     let minDis = Infinity;
     let minX;
     let minY;
@@ -73,17 +73,17 @@ function getSecondNearest(xTargert, yTarget,nearestBud) {
         // If the current bud is closer, set it as min
         let currentDis = TwoDDistance(x, y, xTargert, yTarget);
 
-        if (currentDis < minDis && currentDis!=0 && (nearestBud[0] != x && nearestBud[1] != y)) {
+        if (currentDis < minDis && currentDis != 0 && (nearestBud[0] != x && nearestBud[1] != y)) {
             minDis = currentDis;
             minX = x;
             minY = y;
         }
     }
-    return [minX,minY];
+    return [minX, minY];
 }
 
-function drawConnectingLine(x,y) {
-    let nearestCords = getNearest(x,y);
+function drawConnectingLine(x, y) {
+    let nearestCords = getNearest(x, y);
     //let secondNearestCords = getSecondNearest(x,y,nearestCords);
 
     let nearestX = nearestCords[0];
@@ -94,7 +94,7 @@ function drawConnectingLine(x,y) {
 
     stroke(244);
     strokeWeight(2.5);
-    line(x,y,nearestX,nearestY);
+    line(x, y, nearestX, nearestY);
 
     //stroke(122);
     //line(x,y,secondNearestX,secondNearestY);
@@ -105,13 +105,13 @@ function drawAllConnectingLines() {
     for (let index = 0; index < budArr.length; index++) {
         let x = budArr[index][0];
         let y = budArr[index][1];
-        drawConnectingLine(x,y);
+        drawConnectingLine(x, y);
     }
 }
 
 function findFlowerBounds(actualBurArr) {
     let xMin = actualBurArr[0][0];
-    let yMin = actualBurArr[0][1]; 
+    let yMin = actualBurArr[0][1];
 
     let xMax = actualBurArr[0][0];
     let yMax = actualBurArr[0][1];
@@ -119,18 +119,18 @@ function findFlowerBounds(actualBurArr) {
     for (let index = 0; index < actualBurArr.length; index++) {
         let x = actualBurArr[index][0];
         let y = actualBurArr[index][1];
-        if (x < xMin) {xMin = x;}
-        if (y < yMin) {yMin = y;}
-        if (x > xMax) {xMax = x;}
-        if (y > yMax) {yMax = y;}
+        if (x < xMin) { xMin = x; }
+        if (y < yMin) { yMin = y; }
+        if (x > xMax) { xMax = x; }
+        if (y > yMax) { yMax = y; }
     }
-    return [xMin,xMax,yMin,yMax];
+    return [xMin, xMax, yMin, yMax];
 }
 
 function mapPoints(points, xMin, xMax, yMin, yMax) {
     let arr = [];
     for (point of points) {
-        arr.push([map(point[0]-xMin, 0, xMax, 0, windW/2),map(point[1]-yMin, 0, yMax, 0, windH/2)]);
+        arr.push([map(point[0] - xMin, 0, xMax, 0, windW / 2), map(point[1] - yMin, 0, yMax, 0, windH / 2)]);
     }
     return arr;
 }
@@ -166,7 +166,7 @@ function drawBud(budIndex) {
     // Colour scaling
     let c1 = map(x, 0, windW, minColourBud, maxColourBud);
     let c2 = map(y, 0, windH, minColourBud, maxColourBud);
-    
+
     fill(0, c1, c2);
     ellipse(x, y, budRadius);
 }
@@ -195,7 +195,7 @@ function resetCanvas() {
     // Get Bud Locations
     budArr = findBudLocations(maxBuds);
     let bounds = findFlowerBounds(budArr);
-    budArr = mapPoints(budArr,bounds[0],bounds[1],bounds[2],bounds[3])
+    budArr = mapPoints(budArr, bounds[0], bounds[1], bounds[2], bounds[3])
     k = 0;
 
     // Set bug size to 2% of canvas width
@@ -216,11 +216,10 @@ function changeBudColor() {
     currentMX = mouseX;
     currentMY = mouseY;
 
-    for (let index = 0; index < k+1; index++) {
+    for (let index = 0; index < k + 1; index++) {
         let d = TwoDDistance(currentMX, currentMY, budArr[index][0], budArr[index][1]);
-        if (d < budRadius/2) {
-            if (colouredBudsArr.includes(budArr[index]))
-            {   
+        if (d < budRadius / 2) {
+            if (colouredBudsArr.includes(budArr[index])) {
                 let cindex = colouredBudsArr.indexOf(budArr[index]);
                 colouredBudsArr.splice(cindex, 1);
                 stroke(0);
@@ -236,7 +235,7 @@ function changeBudColor() {
                 pop();
                 colouredBudsArr.push(budArr[index]);
             }
-        }   
+        }
     }
 }
 

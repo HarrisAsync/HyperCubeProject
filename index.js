@@ -13,7 +13,7 @@ $(document).ready(function () {
     runParticleJS();
 });
 
-window.onresize = function() {
+window.onresize = function () {
     PARTICLE.width(INTRO.width());
     PARTICLE.height(INTRO.height());
 

@@ -4,7 +4,7 @@
  * License: MIT, see file 'LICENSE'
  */
 
-;(function ($) {
+; (function ($) {
     "use strict"
 
     var triggerKeyPressed = false
@@ -117,7 +117,7 @@
                 updateAttributes()
                 setValue(value, true)
             })
-            observer.observe($original[0], {attributes: true})
+            observer.observe($original[0], { attributes: true })
 
             $original.after($inputGroup)
 
@@ -207,7 +207,7 @@
                     setTimeout(function () {
                         var event
                         if (typeof (Event) === 'function') {
-                            event = new Event(type, {bubbles: true})
+                            event = new Event(type, { bubbles: true })
                         } else { // IE
                             event = document.createEvent('Event')
                             event.initEvent(type, true, true)
@@ -332,7 +332,7 @@
 
     function onPointerDown(element, callback) {
         element.addEventListener("mousedown", function (e) {
-            if(e.button === 0) {
+            if (e.button === 0) {
                 e.preventDefault()
                 callback(e)
             }

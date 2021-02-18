@@ -151,7 +151,7 @@ function draw() {
         }
 
         // Map the corner points relative to the size of the canvas
-        if (scalingStretched) {mappedCorners = mapPoints(c, lenBoard, heightBoard, padding);} else {mappedCorners = scaleP(c, heightBoard, lenBoard);}
+        if (scalingStretched) { mappedCorners = mapPoints(c, lenBoard, heightBoard, padding); } else { mappedCorners = scaleP(c, heightBoard, lenBoard); }
 
         // Draw cords for corners
         if (!seeCords) {
@@ -184,7 +184,7 @@ function draw() {
         return { x: item.x.toNumber(), y: item.y.toNumber() }
     });
     // Map the collision points relative to the size of the canvas
-    if (scalingStretched) {mappedCollisions = mapPoints(colArr, lenBoard, heightBoard, padding);} else {mappedCollisions = scaleP(colArr, heightBoard, lenBoard);}
+    if (scalingStretched) { mappedCollisions = mapPoints(colArr, lenBoard, heightBoard, padding); } else { mappedCollisions = scaleP(colArr, heightBoard, lenBoard); }
 
     while (nLoop < mappedCollisions.length - 1) {
         drawLaser(mappedCollisions, colArr, heightBoard);
@@ -198,7 +198,7 @@ function scaleP(points, hBoard, lBoard) {
     let f = findScaleFactor(hBoard, lBoard);
 
     for (point of points) {
-        arr.push({ x: ((point.x)*f) + padding, y: ((Math.abs(point.y-hBoard))*f) + padding});
+        arr.push({ x: ((point.x) * f) + padding, y: ((Math.abs(point.y - hBoard)) * f) + padding });
     }
 
     return arr;
@@ -206,17 +206,17 @@ function scaleP(points, hBoard, lBoard) {
 
 function findScaleFactor(hBoard, lBoard) {
     let f = 0;
-    while ( ( (hBoard) * f) < windH - (padding*2) && ( (lBoard) * f) < windW - (padding*2)) {
+    while (((hBoard) * f) < windH - (padding * 2) && ((lBoard) * f) < windW - (padding * 2)) {
         f += 0.01;
     }
 
     // Return if the factor is ok
-    if(f != 0) {return f - 0.01;}
+    if (f != 0) { return f - 0.01; }
 
     // If the Board Height or Board Width has naturally exceeded the Window Height and Width
     f = 1;
-    while (hBoard * f > windH - (padding*2) && lBoard * f > windW - (padding*2)) {
-        f = f/1.01;
+    while (hBoard * f > windH - (padding * 2) && lBoard * f > windW - (padding * 2)) {
+        f = f / 1.01;
     }
 
 }
