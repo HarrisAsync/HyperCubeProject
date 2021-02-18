@@ -139,8 +139,8 @@
             </figcaption>
           </figure>
           <div class="lead">
-            If you wish to view all collisions, set the target value higher than Jug X. Within the settings, there are options to change scaling, line thickness and step size.
-            The default stretched scaling does not maintain the 60°.
+            If you wish to view all collisions, set the target value higher than Jug X. Check out other options within settings.
+            The default stretched scaling does not maintain the 60° parallelogram, change this in settings.
           </div>
           
         </div>
@@ -233,6 +233,19 @@
                           Must be greater than 0.
                         </div>
                       </div>
+
+                      <div class="mt-4">
+                        <div class="mb-1">Point of entry</div>
+                        <div class="form-check form-check-inline">
+                          <input class="form-check-input" type="radio" name="entry_radio_options" id="entry_radio_top_left" value="top_left">
+                          <label class="form-check-label" for="entry_radio_top_left">Top left</label>
+                        </div>
+                        <div class="form-check form-check-inline">
+                          <input class="form-check-input" type="radio" name="entry_radio_options" id="entry_radio_bottom_right" value="bottom_right">
+                          <label class="form-check-label" for="entry_radio_bottom_right">Bottom right</label>
+                        </div>
+                      </div>
+
                       <div class="d-flex mt-4 align-items-center">
                         <div class="form-check form-switch">
                           <input class="form-check-input" type="checkbox" id="scaling" checked>
@@ -251,17 +264,7 @@
               </div>
             </div>
 
-            <div class="mt-2">
-              <div class="mb-1">Point of entry</div>
-              <div class="form-check form-check-inline">
-                <input class="form-check-input" type="radio" name="entry_radio_options" id="entry_radio_top_left" value="top_left">
-                <label class="form-check-label" for="entry_radio_top_left">Top left</label>
-              </div>
-              <div class="form-check form-check-inline">
-                <input class="form-check-input" type="radio" name="entry_radio_options" id="entry_radio_bottom_right" value="bottom_right">
-                <label class="form-check-label" for="entry_radio_bottom_right">Bottom right</label>
-              </div>
-            </div>
+
 
             <label class="mt-2">Collision coordinates</label>
             <textarea class="form-control mb-3 " id="coordinates" rows="3" readonly
