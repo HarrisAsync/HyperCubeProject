@@ -8,7 +8,7 @@ const LINE_THICKNESS = $("#line-thickness");
 const COORDS = $("#coordinates");
 const ENTRY_RADIO = $("input[name=entry_radio_options]");
 const SCALING = $("#scaling");
-
+const CORD_PRECISION = $("#cordPrecision");
 
 $(document).ready(function () {
     WIDTH_INPUT.val(jugX);
@@ -18,6 +18,7 @@ $(document).ready(function () {
     SCALING.prop("checked", scalingStretched);
     LINE_THICKNESS.val(laserThickness);
     STEPSIZE.val(stepSize);
+    CORD_PRECISION.val(cordPrecision);
     $("input[name=entry_radio_options][value=" + entry + "]").attr('checked', 'checked');
     $("input[type='number']").inputSpinner();
 });
@@ -34,7 +35,7 @@ $(".p5Canvas").ready(function () {
 
 setInterval(function () { COORDS.val(actualCordsArr.join(", ")); }, 100);
 
-let controls = [WIDTH_INPUT, HEIGHT_INPUT, TARGET, SHOW_COORDS, STEPSIZE, LINE_THICKNESS, ENTRY_RADIO, SCALING];
+let controls = [WIDTH_INPUT, HEIGHT_INPUT, TARGET, SHOW_COORDS, STEPSIZE, LINE_THICKNESS, ENTRY_RADIO, SCALING, CORD_PRECISION];
 
 for (let control of controls) {
     control.change(update);
@@ -62,6 +63,8 @@ function update(e) {
 
     laserThickness = parseFloat(LINE_THICKNESS.val());
 
+    cordPrecision = CORD_PRECISION.val();
+
     update_step();
 
     e.preventDefault();
@@ -75,7 +78,18 @@ function update(e) {
             return true;
         }
     }
-    let is_valid = validate(jugX, WIDTH_INPUT) && validate(jugY, HEIGHT_INPUT) && validate(water_target, TARGET) && validate(laserThickness, LINE_THICKNESS) && validate(stepSize, STEPSIZE);
+
+    function validateWithZero(val, control) {
+        if (math.smaller(val, 0) || isNaN(val)) {
+            control.addClass("is-invalid");
+            return false;
+        } else {
+            control.removeClass("is-invalid");
+            return true;
+        }
+    }
+
+    let is_valid = validate(jugX, WIDTH_INPUT) && validate(jugY, HEIGHT_INPUT) && validate(water_target, TARGET) && validate(laserThickness, LINE_THICKNESS) && validate(stepSize, STEPSIZE) && validateWithZero(cordPrecision, CORD_PRECISION);
     if (!is_valid) {
         return;
     }

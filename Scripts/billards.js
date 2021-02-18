@@ -49,7 +49,7 @@ function getCurrentTextCord(colArr, h) {
     let acutalPoint1 = cords1[0];
 
     // Text at actual point
-    return '(' + acutalPoint1.x.toFixed(1) + ',' + acutalPoint1.y.toFixed(1) + ')';
+    return '(' + acutalPoint1.x.toFixed(cordPrecision) + ',' + acutalPoint1.y.toFixed(cordPrecision) + ')';
 }
 
 function drawLaser(colArrMapped, colArr, h) {
@@ -69,8 +69,8 @@ function drawLaser(colArrMapped, colArr, h) {
     let sideOffset2 = cords2[1];
 
     // Draw Text at actual point
-    let txt1 = '(' + acutalPoint1.x.toFixed(1) + ',' + acutalPoint1.y.toFixed(1) + ')';
-    let txt2 = '(' + acutalPoint2.x.toFixed(1) + ',' + acutalPoint2.y.toFixed(1) + ')';
+    let txt1 = '(' + acutalPoint1.x.toFixed(cordPrecision) + ',' + acutalPoint1.y.toFixed(cordPrecision) + ')';
+    let txt2 = '(' + acutalPoint2.x.toFixed(cordPrecision) + ',' + acutalPoint2.y.toFixed(cordPrecision) + ')';
 
     // Push to an array, for display later
     actualCordsArr.push(txt2);
@@ -144,10 +144,10 @@ function draw() {
 
         if (entry == "top_left") {
             // Put first coord into array
-            actualCordsArr.push("(" + new Number(0).toFixed(1) + "," + jugY.toFixed(1) + ")");
+            actualCordsArr.push("(" + new Number(0).toFixed(cordPrecision) + "," + jugY.toFixed(cordPrecision) + ")");
         } else {
             // Put first coord into array
-            actualCordsArr.push("(" + jugX.toFixed(1) + "," + new Number(0).toFixed(1) + ")");
+            actualCordsArr.push("(" + jugX.toFixed(cordPrecision) + "," + new Number(0).toFixed(cordPrecision) + ")");
         }
 
         // Map the corner points relative to the size of the canvas
@@ -269,7 +269,7 @@ let laserThickness = 1.5;
 let stepSize = 1;
 let entry = "top_left";
 let scalingStretched = false;
-
+let cordPrecision = 0;
 
 let padding = 55;
 let maxStroke = 9; // Not needed
