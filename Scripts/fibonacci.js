@@ -60,14 +60,44 @@ function getNearest(xTargert, yTarget) {
     return [minX,minY];
 }
 
+function getSecondNearest(xTargert, yTarget,nearestBud) {
+    let minDis = Infinity;
+    let minX;
+    let minY;
+    for (let index = 0; index < budArr.length; index++) {
+
+        // Get current bud location
+        let x = budArr[index][0];
+        let y = budArr[index][1];
+
+        // If the current bud is closer, set it as min
+        let currentDis = TwoDDistance(x, y, xTargert, yTarget);
+
+        if (currentDis < minDis && currentDis!=0 && (nearestBud[0] != x && nearestBud[1] != y)) {
+            minDis = currentDis;
+            minX = x;
+            minY = y;
+        }
+    }
+    return [minX,minY];
+}
+
 function drawConnectingLine(x,y) {
     let nearestCords = getNearest(x,y);
+    //let secondNearestCords = getSecondNearest(x,y,nearestCords);
+
     let nearestX = nearestCords[0];
     let nearestY = nearestCords[1];
+
+    //let secondNearestX = secondNearestCords[0];
+    //let secondNearestY = secondNearestCords[1];
 
     stroke(244);
     strokeWeight(2.5);
     line(x,y,nearestX,nearestY);
+
+    //stroke(122);
+    //line(x,y,secondNearestX,secondNearestY);
 
 }
 
