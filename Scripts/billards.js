@@ -268,7 +268,7 @@ let seeCords = true;
 let laserThickness = 1.5;
 let stepSize = 1;
 let entry = "top_left";
-let scalingStretched = true;
+let scalingStretched = false;
 
 
 let padding = 55;
