@@ -25,9 +25,9 @@ function findBudLocations(lim) {
     // Get the bud locations prior to drawing them
     var budLocationArr = [];
     for (let n = 0; n < lim; n++) {
-        var a = n * angle;
+        var a = n * (angle * Math.PI / 180);
         var r = c * Math.sqrt(n);
-    
+
         var x = r * Math.cos(a); 
         var y = r * Math.sin(a);
         budLocationArr.push([x,y]);
