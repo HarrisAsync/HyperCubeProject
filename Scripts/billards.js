@@ -151,7 +151,7 @@ function draw() {
         }
 
         // Map the corner points relative to the size of the canvas
-        mappedCorners = mapPoints(c, lenBoard, heightBoard, padding);
+        if (scalingStretched) {mappedCorners = mapPoints(c, lenBoard, heightBoard, padding);} else {mappedCorners = scaleP(c, heightBoard, lenBoard);}
 
         // Draw cords for corners
         if (!seeCords) {
@@ -184,12 +184,41 @@ function draw() {
         return { x: item.x.toNumber(), y: item.y.toNumber() }
     });
     // Map the collision points relative to the size of the canvas
-    mappedCollisions = mapPoints(colArr, lenBoard, heightBoard, padding);
+    if (scalingStretched) {mappedCollisions = mapPoints(colArr, lenBoard, heightBoard, padding);} else {mappedCollisions = scaleP(colArr, heightBoard, lenBoard);}
 
     while (nLoop < mappedCollisions.length - 1) {
         drawLaser(mappedCollisions, colArr, heightBoard);
         nLoop++;
     }
+}
+
+function scaleP(points, hBoard, lBoard) {
+    let arr = [];
+
+    let f = findScaleFactor(hBoard, lBoard);
+
+    for (point of points) {
+        arr.push({ x: ((point.x)*f) + padding, y: ((Math.abs(point.y-hBoard))*f) + padding});
+    }
+
+    return arr;
+}
+
+function findScaleFactor(hBoard, lBoard) {
+    let f = 0;
+    while ( ( (hBoard) * f) < windH - (padding*2) && ( (lBoard) * f) < windW - (padding*2)) {
+        f += 0.01;
+    }
+
+    // Return if the factor is ok
+    if(f != 0) {return f - 0.01;}
+
+    // If the Board Height or Board Width has naturally exceeded the Window Height and Width
+    f = 1;
+    while (hBoard * f > windH - (padding*2) && lBoard * f > windW - (padding*2)) {
+        f = f/1.01;
+    }
+
 }
 
 function resetBoard() {
@@ -238,6 +267,8 @@ let seeCords = true;
 let laserThickness = 1.5;
 let stepSize = 1;
 let entry = "top_left";
+let scalingStretched = true;
+
 
 let padding = 50;
 let maxStroke = 9; // Not needed

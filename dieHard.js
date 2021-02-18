@@ -7,12 +7,15 @@ const STEPSIZE = $("#step-size");
 const LINE_THICKNESS = $("#line-thickness");
 const COORDS = $("#coordinates");
 const ENTRY_RADIO = $("input[name=entry_radio_options]");
+const SCALING = $("#scaling");
+
 
 $(document).ready(function () {
     WIDTH_INPUT.val(jugX);
     HEIGHT_INPUT.val(jugY);
     TARGET.val(math.number(water_target));
     SHOW_COORDS.prop("checked", seeCords);
+    SCALING.prop("checked", scalingStretched);
     LINE_THICKNESS.val(laserThickness);
     STEPSIZE.val(stepSize);
     $("input[name=entry_radio_options][value=" + entry + "]").attr('checked', 'checked');
@@ -31,7 +34,7 @@ $(".p5Canvas").ready(function () {
 
 setInterval(function () { COORDS.val(actualCordsArr.join(", ")); }, 100);
 
-let controls = [WIDTH_INPUT, HEIGHT_INPUT, TARGET, SHOW_COORDS, STEPSIZE, LINE_THICKNESS, ENTRY_RADIO];
+let controls = [WIDTH_INPUT, HEIGHT_INPUT, TARGET, SHOW_COORDS, STEPSIZE, LINE_THICKNESS, ENTRY_RADIO, SCALING];
 
 for (let control of controls) {
     control.change(update);
@@ -53,6 +56,8 @@ function update(e) {
     jugY = parseFloat(HEIGHT_INPUT.val());
 
     seeCords = SHOW_COORDS.is(":checked");
+    scalingStretched = SCALING.is(":checked");
+
     water_target = bignumber(TARGET.val());
 
     laserThickness = parseFloat(LINE_THICKNESS.val());
