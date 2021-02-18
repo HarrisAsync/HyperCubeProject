@@ -270,7 +270,7 @@ let entry = "top_left";
 let scalingStretched = true;
 
 
-let padding = 50;
+let padding = 55;
 let maxStroke = 9; // Not needed
 let minStroke = 0.1; // Not needed
 let windW = 1000;
