@@ -4,13 +4,21 @@
 // Canvas setup
 //
 
+function getD() {
+	if (window.mobileCheck()) {
+		if (screen.availHeight < screen.availWidth) { // Horizonal
+			return [window.innerHeight - (parseInt(window.getComputedStyle(canvasDIV, null).getPropertyValue('padding-top'), 10)*4), window.innerWidth/2];
+		} else { // Vertical
+			return [window.innerHeight/2, window.innerWidth - (parseInt(window.getComputedStyle(canvasDIV, null).getPropertyValue('padding-left'), 10)*4)];
+		}
+	}
+	return [window.innerHeight/2, window.innerWidth/2];
+}
 
 window.onresize = function() {
-	let additionalSpace = 0;
-	if (window.mobileCheck() && screen.availHeight > screen.availWidth) {additionalSpace = window.innerWidth/4}
-
-	HEIGHT = window.innerHeight/2 + additionalSpace;
-	WIDTH = window.innerWidth/2 + additionalSpace;
+	let HW = getD();
+	HEIGHT = HW[0];
+	WIDTH = HW[1];
 	canvas.width = WIDTH;
 	canvas.height = HEIGHT;
 	init();
@@ -34,8 +42,9 @@ var ISOMETRIC = false;
 var ROTATIONS = [[0, 3], [1, 2]];
 
 // Settings and constants
-var HEIGHT = window.innerHeight/2;
-var WIDTH = window.innerWidth/2;
+let HW  = getD();
+var HEIGHT = HW[0];
+var WIDTH = HW[1];
 
 var FIGURE = void 0;
 var NEXTFRAME = void 0;
