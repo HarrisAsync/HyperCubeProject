@@ -79,9 +79,9 @@ var DefaultScalingNonISO = [
 
 var DefaultScalingISO = [
 	100, // Square
-	100, // Cube
-	100, // Tesseract
-	100, // Penteract
+	90, // Cube
+	90, // Tesseract
+	90, // Penteract
 	90, // Hexeract
 	80, // Hepteract
 	70, // Octeract
