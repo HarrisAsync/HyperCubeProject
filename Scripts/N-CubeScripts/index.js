@@ -6,9 +6,7 @@
 
 function getD() {
 	if (window.mobileCheck()) {
-		if (screen.availHeight < screen.availWidth) { // Horizonal
-			return [window.innerHeight - (parseInt(window.getComputedStyle(canvasDIV, null).getPropertyValue('padding-top'), 10)*4), window.innerWidth/2];
-		} else { // Vertical
+		if (screen.availHeight >= screen.availWidth) { // Vertical
 			return [window.innerHeight/2, window.innerWidth - (parseInt(window.getComputedStyle(canvasDIV, null).getPropertyValue('padding-left'), 10)*4)];
 		}
 	}
