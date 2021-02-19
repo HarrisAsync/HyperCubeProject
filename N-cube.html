@@ -7,13 +7,14 @@
   <meta name="description" content="">
   <meta name="generator" content="Hugo 0.79.0">
   <link rel="shortcut icon" type="image/x-icon" href="./Assets/favicon.png" />
-  <title>Hypercube | Penrose Tiling</title>
+  <title>Hypercube | N-cube</title>
 
   <!-- Bootstrap core CSS -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet"
     integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
 
   <link rel="stylesheet" href="./global.css">
+  <link rel="stylesheet" href="./N-cube.css">
 </head>
 
 <body>
@@ -59,53 +60,91 @@
 
       <!--Title-->
       <div class="row">
-        <h1 style="padding-top: 20px;">Penrose Tiling</h1>
+        <h1 style="padding-top: 20px;">N-cube</h1>
       </div>
 
       <!--Introduction-->
       <div class="row">
         <!--Quick Introduction-->
         <div class="col-md lead text-left textSpacing">
-          Named after the mathematician and physicist Roger Penrose, this tiling is aperiodic, meaning that the tiles on
-          the plane do not contain arbitrarily large repeating patches.
-          The tiling is typically formed with only 2 shapes, a kite and dart.
+          In geometry, an n-dimensional hypercube is more commonly referred to as an n-cube, where n represents the amount of dimentions. 
+          These n-cubes act very differently than you might think. Once rendering a 4 dimentional cube, you must rely on your intuition about 3D and 2D space, to fully grasp locality. 
+          This visualisation attempts to assist in your understanding, through the rotation of the n-cube about different planes.
           <small class="text-muted"><a target="_blank" style="text-decoration: none;" class="text-muted"
-              href="https://youtu.be/48sCx-wBs34"><ins>For more information check out this Veritasium
+              href="https://youtu.be/j-ixGKZlLVc"><ins>For aid check out this
                 video.</ins></a></small>
         </div>
         <!--Roger Penrose Quote-->
         <div class="col-md textSpacing">
           <figure class="text-end">
             <blockquote class="blockquote">
-              <p>"It is always the case, with mathematics, that a little direct experience of thinking over
-                things on your own can provide a much deeper understanding than merely reading about them."</p>
+              <p>"In order to more fully understand this reality, we must take into account other dimensions of a broader reality."</p>
             </blockquote>
             <figcaption class="blockquote-footer">
-              <cite title="Source Title">Roger Penrose</cite>
+              <cite title="Source Title">John Archibald Wheeler</cite>
             </figcaption>
           </figure>
         </div>
       </div>
 
-      <!--Penrose Tiling visualisation INFO-->
+      <!--N-Cube visualisation INFO-->
       <div class="row">
         <div class="text-center">
-          <h4>Click around on the visualisation</h4>
+          <h4 id="name"></h4>
         </div>
       </div>
 
-      <!--Penrose Tiling visualisation-->
-      <div class="row justify-content-md-center">
-        <iframe sandbox="allow-forms allow-scripts" scrolling="no" width="100%" height="500"
-          style="border:none; padding-bottom: 20px;" src="https://dglittle.github.io/cdn/penrose002.html"></iframe>
+      <div class="row mb-1">
+        <div class="text-center">
+          <h6 id="info"></h6>
+        </div>
       </div>
 
+      <!--N-Cube visualisation-->
+      <div class="row mx-auto">
+        <div class="col">
+          <canvas class="m-4 mx-auto d-block" id="canvas"></canvas>
+        </div>
+
+        <div style="padding: 0 !important;" class="col list-group list-group-flush m-4 d-block text-center">
+            <div class="row list-group-item">
+                <span>Dimension</span>
+                <br><small>Goes from 2 to 10</small>
+                <form id="dimension"></form>
+            </div>
+            <div class="row list-group-item">
+                <span>Scaling</span>
+                <br><small>How large the figure is</small>
+                <form id="scaling"></form>
+            </div>
+            <div class="row list-group-item">
+                <span>Speed</span>
+                <br><small>How fast the figure is spinning</small>
+                <form id="speed"></form>
+            </div>
+            <div class="row list-group-item">
+                <span>Distance</span>
+                <br><small>Works only on a non-isometric projection</small>
+                <form id="distance"></form>
+            </div>
+            <div class="row list-group-item">
+                <span>Isometric projection</span>
+                <br><small>Non-isometric projections need large scaling</small>
+                <form id="isometric"></form>
+            </div>
+            <div class="row list-group-item">
+                <span>Rotations</span>
+                <br><small>Enable the rotation of planes defined by the axes</small>
+                <form class="noselect" id="rotations"></form>
+            </div>
+        </div>
+      </div>
       <!--Visualisation credit-->
       <div class="row">
         <div class="text-left lead">
-          <p>Visualisation by Greg Little <br>
+          <p>Visualisation by Ninivert<br>
             <small><a target="_blank" style="text-decoration: none;" class="text-muted"
-                href="https://github.com/dglittle"><ins>View GitHub</ins></a></small>
+                href="https://github.com/ninivert/N-Dimension-Cube-Renderer"><ins>View GitHub</ins></a></small>
           </p>
         </div>
       </div>
@@ -114,7 +153,7 @@
       <div class="row">
         <div class="text-left lead">
           <small class="text-muted">
-            <p>Page authors: Regan Harper and Harris Perdikoyiannis</p>
+            <p>Page author: Harris Perdikoyiannis</p>
           </small>
         </div>
       </div>
@@ -142,19 +181,19 @@
     </div>
   </footer>
 
-  <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
-    integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
-    crossorigin="anonymous"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
-    integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
-    crossorigin="anonymous"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
-    integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
-    crossorigin="anonymous"></script>
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js"
-    integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW"
-    crossorigin="anonymous"></script>
-    <script src="Scripts/date.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.bundle.min.js"
+  integrity="sha384-b5kHyXgcpbZJO/tY9Ul7kGkf1S0CWuKcCD38l8YkeH8z8QjE0GmW1gYU5S9FOnJ0"
+  crossorigin="anonymous"></script>
+  <script src="Scripts/date.js"></script>
+
+  <script src="Scripts/N-CubeScripts/matrix.js"></script>
+  <script src="Scripts/N-CubeScripts/vertex.js"></script>
+  <script src="Scripts/N-CubeScripts/projection.js"></script>
+  <script src="Scripts/N-CubeScripts/rotation.js"></script>
+  <script src="Scripts/N-CubeScripts/draw.js"></script>
+  <script src="Scripts/N-CubeScripts/index.js"></script>
+  <script src="Scripts/N-CubeScripts/controls.js"></script>
+
 </body>
 
 </html>
