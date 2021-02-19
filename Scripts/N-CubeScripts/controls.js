@@ -35,7 +35,7 @@ CONTROLS.DOM = {
 
 	for (var i = 0; i < forms.length; i++) {
 		this.init[forms[i]].call(this);
-		this.DOM.forms[forms[i]].oninput = this.callback[forms[i]].bind(this);
+		//this.DOM.forms[forms[i]].oninput = this.callback[forms[i]].bind(this);
 		// onchange is for the checkboxes on mobile touch devices
 		this.DOM.forms[forms[i]].onchange = this.callback[forms[i]].bind(this);
 		this.DOM.forms[forms[i]].onsubmit = function () {
