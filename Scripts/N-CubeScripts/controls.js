@@ -49,8 +49,13 @@ CONTROLS.init.dimension = function () {
  Note: Create a number input for the dimension number
  */
 	var input = document.createElement('input');
-	input.type = 'number';
+	input.type = 'range';
+	input.classList.add("form-range");
+	input.min = 2;
+	input.max = 10;
+	input.step = 1;
 	input.value = DIMENSION;
+	document.getElementById("dimentionValue").innerHTML = DIMENSION;
 
 	this.DOM.children.dimension = input;
 	this.DOM.forms.dimension.appendChild(input);
@@ -65,7 +70,7 @@ CONTROLS.init.scaling = function () {
 	input.type = 'number';
 	input.value = SCALING;
 	input.step = 20;
-
+	input.classList.add("form-control");
 	this.DOM.children.scaling = input;
 	this.DOM.forms.scaling.appendChild(input);
 };
@@ -79,7 +84,7 @@ CONTROLS.init.speed = function () {
 	input.type = 'number';
 	input.value = SPEED;
 	input.step = 0.001;
-
+	input.classList.add("form-control");
 	this.DOM.children.speed = input;
 	this.DOM.forms.speed.appendChild(input);
 };
@@ -93,7 +98,7 @@ CONTROLS.init.distance = function () {
 	input.type = 'number';
 	input.value = DISTANCE;
 	input.step = 0.1;
-
+	input.classList.add("form-control");
 	this.DOM.children.distance = input;
 	this.DOM.forms.distance.appendChild(input);
 };
@@ -104,6 +109,7 @@ CONTROLS.init.isometric = function () {
  */
 
 	var checkbox = document.createElement('input');
+	checkbox.classList.add("form-check-input");
 	checkbox.type = 'checkbox';
 	checkbox.id = 'isometric-checkbox';
 	if (ISOMETRIC) {
@@ -190,7 +196,7 @@ CONTROLS.callback.dimension = function () {
 
 	// Ka-bam, reset everything
 	DIMENSION = value;
-	
+
 	// Index of default rotation array is: value - 2 
 	ROTATIONS = DefaultRotations[value - 2];
 
@@ -201,7 +207,7 @@ CONTROLS.callback.dimension = function () {
 		SCALING = DefaultScalingISO[value - 2];
 	}
 	document.getElementById('scaling').children[0].value = SCALING;
-
+	document.getElementById("dimentionValue").innerHTML = DIMENSION;
 	init();
 	// Update the rotation options for the new dimension 
 	CONTROLS.init.rotations.call(this);
