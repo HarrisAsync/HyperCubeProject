@@ -51,6 +51,7 @@ CONTROLS.init.dimension = function () {
 	var input = document.createElement('input');
 	input.type = 'range';
 	input.classList.add("form-range");
+	input.classList.add("white");
 	input.min = 2;
 	input.max = 10;
 	input.step = 1;
@@ -67,6 +68,7 @@ CONTROLS.init.scaling = function () {
  */
 
 	var input = document.createElement('input');
+
 	input.type = 'number';
 	input.value = SCALING;
 	input.step = 20;

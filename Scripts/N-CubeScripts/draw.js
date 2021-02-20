@@ -6,7 +6,7 @@
 
 function draw() {
 	// Clear the screen
-	ctx.fillStyle = '#fff';
+	ctx.fillStyle = '#212121';
 	ctx.fillRect(-WIDTH / 2, -HEIGHT / 2, WIDTH, HEIGHT);
 
 	// Matrices
@@ -68,7 +68,7 @@ function drawVertices(points) {
 	for (var i = 0; i < points.length; i++) {
 		ctx.beginPath();
 		ctx.arc(points[i][0], points[i][1], 3, 0, 2 * Math.PI);
-		ctx.fillStyle = '#1D5E3E';
+		ctx.fillStyle = '#3FBA7D';
 		ctx.fill();
 	}
 }
@@ -103,7 +103,7 @@ function connectVertices(points) {
 		ctx.lineTo(points[i2][0], points[i2][1]);
 	}
 
-	ctx.strokeStyle = '#1D5E3E';
+	ctx.strokeStyle = '#3FBA7D';
 	ctx.stroke();
 }
 

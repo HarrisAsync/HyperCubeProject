@@ -24,7 +24,7 @@ function findCoordinate(point, h) {
     } else if (point.y == table.walls.left.equation.calc(bignumber(point.x)).toNumber()) {
         // left side line
         let ypoint = map(point.y, 0, h, 0, jugY);
-        return [{ x: 0, y: ypoint }, { x: -30 - textOffsetValue(), y: 0 }];
+        return [{ x: 0, y: ypoint }, { x: -35 - textOffsetValue(), y: 0 }];
     } else {
         // right side line
         let ypoint = map(point.y, 0, h, 0, jugY);
@@ -43,10 +43,8 @@ function textCordSize() {
 }
 
 function textOffsetValue() {
-    if (cordPrecision > 5) {
-        return (7*cordPrecision);
-    }
-    return (10)*cordPrecision;
+    let offSets = [0, 15, 25, 30, 35, 40, 45, 50, 50, 55, 55]
+    return offSets[cordPrecision];
 }
 
 function getCurrentTextCord(colArr, h) {
@@ -82,20 +80,17 @@ function drawLaser(colArrMapped, colArr, h) {
     actualCordsArr.push(txt2);
 
     push();
+    noStroke();
+    textSize(textCordSize());
+    fill(color('#e1e1e1'));
     // Display cords only if selected or small colArr
     if (seeCords) {
-        noStroke();
-        textSize(textCordSize());
-        fill(color('#e1e1e1'));
         text(txt1, colArrMapped[nLoop].x + sideOffset1.x, colArrMapped[nLoop].y + sideOffset1.y);
         if (nLoop + 2 == colArrMapped.length) { fill(color('#78B798')); }
         text(txt2, colArrMapped[nLoop + 1].x + sideOffset2.x, colArrMapped[nLoop + 1].y + sideOffset2.y);
     }
 
     // Draw dot a points
-    noStroke();
-    textSize(textCordSize());
-    fill(color('#e1e1e1'));
     ellipse(colArrMapped[nLoop + 1].x, colArrMapped[nLoop + 1].y, laserThickness);
     pop();
 }
@@ -131,7 +126,7 @@ function setup() {
     //     e.preventDefault();
     // });
     cnv.parent('bTable');
-    background(color("#0F0F0F"));
+    background(color("#212121"));
     frameRate(fps);
 }
 
@@ -226,7 +221,7 @@ function findScaleFactor(hBoard, lBoard) {
 }
 
 function resetBoard() {
-    background(color("#0F0F0F"));
+    background(color("#212121"));
     changeOccured = true;
     nLoop = 0;
     actualCordsArr = [];
