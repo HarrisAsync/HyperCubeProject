@@ -17,12 +17,20 @@ function getD() {
 }
 
 window.onresize = function() {
-	let HW = getD();
-	HEIGHT = HW[0];
-	WIDTH = HW[1];
-	canvas.width = WIDTH;
-	canvas.height = HEIGHT;
-	init();
+	// Check if subtaintial window change
+	if (Math.abs(WW-window.innerWidth) > 100 || Math.abs(WH-window.innerHeight) > 100) {
+		// Set updated height and width
+		WW = window.innerWidth;
+		WH = window.innerHeight;
+
+		// Update canvas size variables
+		let HW = getD();
+		HEIGHT = HW[0];
+		WIDTH = HW[1];
+		canvas.width = WIDTH;
+		canvas.height = HEIGHT;
+		init();
+	}
 }
 
 window.mobileCheck = function() {
@@ -46,6 +54,9 @@ var ROTATIONS = [[0, 3], [1, 2]];
 let HW  = getD();
 var HEIGHT = HW[0];
 var WIDTH = HW[1];
+var WW = window.innerWidth;
+var WH = window.innerHeight;
+
 
 var FIGURE = void 0;
 var NEXTFRAME = void 0;
