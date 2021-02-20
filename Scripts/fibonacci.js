@@ -16,6 +16,10 @@ var budArr;
 var colouredBudsArr = [];
 var k = 0;
 
+// Set updated height and width
+var WW = window.innerWidth;
+var WH = window.innerHeight;
+
 const vw = Math.max(document.documentElement.clientWidth || 0, window.innerWidth || 0)
 const vh = Math.max(document.documentElement.clientHeight || 0, window.innerHeight || 0)
 
@@ -149,12 +153,18 @@ function setup() {
 }
 
 function windowResized() {
-    let container = $("#container");
-    let size = container.width();
-    windW = size;
-    windH = size;
-    resizeCanvas(windW, windH);
-    resetCanvas();
+    // Check if subtaintial window change
+	if (Math.abs(WW-window.innerWidth) >= 0 || Math.abs(WH-window.innerHeight) > 100) {
+		// Set updated height and width
+		WW = window.innerWidth;
+		WH = window.innerHeight;
+        let container = $("#container");
+        let size = container.width();
+        windW = size;
+        windH = size;
+        resizeCanvas(windW, windH);
+        resetCanvas();
+    }
 }
 
 function drawBud(budIndex) {
