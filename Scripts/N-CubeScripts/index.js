@@ -13,7 +13,7 @@ function getD() {
 		}
 	}
 	// Standard size.
-	return [window.innerHeight/2, window.innerWidth/2];
+	return [window.innerHeight/2, (parseInt(window.getComputedStyle(canvasDIV, null).getPropertyValue('width'), 10) - (parseInt(window.getComputedStyle(canvasDIV, null).getPropertyValue('padding-left'), 10)*4))/2];
 }
 
 window.onresize = function() {
