@@ -154,7 +154,7 @@ function setup() {
 
 function windowResized() {
     // Check if subtaintial window change
-	if (Math.abs(WW-window.innerWidth) >= 0 || Math.abs(WH-window.innerHeight) > 100) {
+	if (Math.abs(WW-window.innerWidth) > 50 || Math.abs(WH-window.innerHeight) > 100) {
 		// Set updated height and width
 		WW = window.innerWidth;
 		WH = window.innerHeight;
