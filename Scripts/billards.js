@@ -24,7 +24,7 @@ function findCoordinate(point, h) {
     } else if (point.y == table.walls.left.equation.calc(bignumber(point.x)).toNumber()) {
         // left side line
         let ypoint = map(point.y, 0, h, 0, jugY);
-        return [{ x: 0, y: ypoint }, { x: -55, y: 0 }];
+        return [{ x: 0, y: ypoint }, { x: -30 - textOffsetValue(), y: 0 }];
     } else {
         // right side line
         let ypoint = map(point.y, 0, h, 0, jugY);
@@ -38,10 +38,15 @@ function laserStroke(lenCollisionArr) {
     return m;
 }
 
-function textCordSize(lenCollisionArr) {
-    let m = maxCordTextSize * (0.99 ** lenCollisionArr);
-    if (m < minStroke) { return minStroke; }
-    return m;
+function textCordSize() {
+    return (-1/2)*cordPrecision + 10;
+}
+
+function textOffsetValue() {
+    if (cordPrecision > 5) {
+        return (7*cordPrecision);
+    }
+    return (10)*cordPrecision;
 }
 
 function getCurrentTextCord(colArr, h) {
@@ -54,11 +59,12 @@ function getCurrentTextCord(colArr, h) {
 
 function drawLaser(colArrMapped, colArr, h) {
     // Colour and thickness
+    push();
     stroke(color('#1C5E3E'));
     strokeWeight(laserThickness);
-
     // Draw Line Laser
     line(colArrMapped[nLoop].x, colArrMapped[nLoop].y, colArrMapped[nLoop + 1].x, colArrMapped[nLoop + 1].y);
+    pop();
 
     // Get actual points
     let cords1 = findCoordinate(colArr[nLoop], h);
@@ -75,18 +81,23 @@ function drawLaser(colArrMapped, colArr, h) {
     // Push to an array, for display later
     actualCordsArr.push(txt2);
 
+    push();
     // Display cords only if selected or small colArr
     if (seeCords) {
         noStroke();
-        textSize(10);
+        textSize(textCordSize());
         fill(color('#e1e1e1'));
         text(txt1, colArrMapped[nLoop].x + sideOffset1.x, colArrMapped[nLoop].y + sideOffset1.y);
-
         if (nLoop + 2 == colArrMapped.length) { fill(color('#78B798')); }
         text(txt2, colArrMapped[nLoop + 1].x + sideOffset2.x, colArrMapped[nLoop + 1].y + sideOffset2.y);
     }
+
     // Draw dot a points
+    noStroke();
+    textSize(textCordSize());
+    fill(color('#e1e1e1'));
     ellipse(colArrMapped[nLoop + 1].x, colArrMapped[nLoop + 1].y, laserThickness);
+    pop();
 }
 
 function mapPoints(points, xMax, yMax, pads) {
@@ -156,6 +167,7 @@ function draw() {
         // Draw cords for corners
         if (!seeCords) {
             for (let i = 0; i < 4; i++) {
+                push();
                 noStroke();
                 textSize(10);
                 fill(color('#e1e1e1'));
@@ -163,8 +175,9 @@ function draw() {
                 let cords1 = findCoordinate(c[i], heightBoard);
                 let acutalPoint1 = cords1[0];
                 let sideOffset1 = cords1[1];
-                let txt1 = '(' + acutalPoint1.x.toFixed(1) + ',' + acutalPoint1.y.toFixed(1) + ')';
+                let txt1 = '(' + acutalPoint1.x.toFixed(cordPrecision) + ',' + acutalPoint1.y.toFixed(cordPrecision) + ')';
                 text(txt1, mappedCorners[i].x + sideOffset1.x, mappedCorners[i].y + sideOffset1.y);
+                pop();
             }
         }
         // Draw Board
