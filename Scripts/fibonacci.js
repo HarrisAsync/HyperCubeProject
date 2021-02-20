@@ -1,6 +1,6 @@
 // Vars
 var c = 1; // Keep 1
-var maxBuds = 1000; // can never be 0
+var maxBuds = 1001; // can never be 0
 var angle = 137.5;
 
 var budFillClick = [142, 229, 193];
@@ -134,7 +134,7 @@ function findFlowerBounds(actualBurArr) {
 function mapPoints(points, xMin, xMax, yMin, yMax) {
     let arr = [];
     for (point of points) {
-        arr.push([map(point[0] - xMin, 0, xMax, 0, windW / 2), map(point[1] - yMin, 0, yMax, 0, windH / 2)]);
+        arr.push([map(point[0] - xMin, 0, xMax, 10, windW / 2), map(point[1] - yMin, 0, yMax, 10, windH / 2)]);
     }
     return arr;
 }
