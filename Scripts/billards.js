@@ -196,30 +196,20 @@ function scaleP(points, hBoard, lBoard) {
     let arr = [];
 
     let f = findScaleFactor(hBoard, lBoard);
-    let yGap = windH - hBoard*f - 2*padding;
-    let xGap = windW - lBoard*f - 2*padding;
+    let yGap = windH - hBoard * f - 2 * padding;
+    let xGap = windW - lBoard * f - 2 * padding;
     for (point of points) {
-        arr.push({ x: ((point.x)*f) + padding + (xGap/2), y: ((Math.abs(point.y-hBoard))*f) + padding + (yGap/2)});
+        arr.push({ x: ((point.x) * f) + padding + (xGap / 2), y: ((Math.abs(point.y - hBoard)) * f) + padding + (yGap / 2) });
     }
 
     return arr;
 }
 
 function findScaleFactor(hBoard, lBoard) {
-    let f = 0;
-    while ( ( (hBoard) * f) < windH - (padding*2) && ( (lBoard) * f) < windW - (padding*2) ) {
-        f += 0.01;
-    }
-
-    // Return if the factor is ok
-    if (f != 0) { return f - 0.01; }
-
-    // If the Board Height or Board Width has naturally exceeded the Window Height and Width
-    f = 1;
-    while (hBoard * f > windH - (padding * 2) && lBoard * f > windW - (padding * 2)) {
-        f = f / 1.01;
-    }
-
+    let factor_H = (windH - (padding * 2)) / hBoard;
+    let factor_W = (windW - (padding * 2)) / lBoard;
+    console.log(factor_H, factor_W)
+    return Math.min(factor_H, factor_W);
 }
 
 function resetBoard() {
@@ -232,10 +222,29 @@ function resetBoard() {
 }
 
 function windowResized() {
+    function vh(v) {
+        var h = Math.max(document.documentElement.clientHeight, window.innerHeight || 0);
+        return (v * h) / 100;
+    }
+
+    function vw(v) {
+        var w = Math.max(document.documentElement.clientWidth, window.innerWidth || 0);
+        return (v * w) / 100;
+    }
+
+    function vmin(v) {
+        return Math.min(vh(v), vw(v));
+    }
+
+    function vmax(v) {
+        return Math.max(vh(v), vw(v));
+    }
+
     let container = $("#bTable");
     windW = container.width();
-    windH = container.height();
+    windH = Math.min(container.height(), vh(100));
     resizeCanvas(windW, windH);
+    console.log(windW, windH);
     // Reset variables
     resetBoard();
 }
