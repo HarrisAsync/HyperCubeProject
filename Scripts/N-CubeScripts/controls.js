@@ -6,7 +6,7 @@ the form ID should match the initalizer CONTROLS.init.{name}
 and the oninput callback CONTROLS.callback.{name}
 */
 
-function CONTROLS() {}
+function CONTROLS() { }
 
 CONTROLS.DOM = {
 	// All the container form elements
@@ -25,7 +25,7 @@ CONTROLS.DOM = {
 	// Initalization
 	//
 
-};CONTROLS.init = function () {
+}; CONTROLS.init = function () {
 	/*
  Note: Looping through all the individual initializers to call them all
  Also add the callbacks and disable form submission
@@ -133,8 +133,8 @@ CONTROLS.init.rotations = function () {
  */
 
 	var checkbox = void 0,
-	    label = void 0,
-	    text = void 0;
+		label = void 0,
+		text = void 0;
 	var activeRotations = JSON.stringify(ROTATIONS);
 
 	// Reset the form
@@ -154,7 +154,7 @@ CONTROLS.init.rotations = function () {
 		}
 
 		label = document.createElement('label');
-		label.id =  text + "L";
+		label.id = text + "L";
 		label.htmlFor = text;
 		label.innerHTML = text;
 
@@ -272,7 +272,7 @@ CONTROLS.callback.rotations = function () {
 		let label = document.getElementById(this.DOM.children.rotations[i].id + "L");
 		if (checkbox.checked) {
 			ROTATIONS.push(ALLROTATIONS[i]);
-			
+
 			// Style Change
 			label.style.color = "#1D5E3E";
 		} else {

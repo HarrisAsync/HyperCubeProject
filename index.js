@@ -6,16 +6,19 @@ const TITLE = $("#title");
 const PARTICLE = $("#particles-js");
 
 /* ---- particles.js config ---- */
+function resize() {
+    PARTICLE.width(TITLE.outerWidth(false));
+    PARTICLE.height(TITLE.outerHeight(true));
+}
+
 $(document).ready(function () {
-    PARTICLE.width(INTRO.width());
-    PARTICLE.height(INTRO.height());
+    resize();
 
     runParticleJS();
 });
 
 window.onresize = function () {
-    PARTICLE.width(INTRO.width());
-    PARTICLE.height(INTRO.height());
+    resize();
 
     runParticleJS();
 };
