@@ -35,9 +35,15 @@ CONTROLS.DOM = {
 
 	for (var i = 0; i < forms.length; i++) {
 		this.init[forms[i]].call(this);
-		//this.DOM.forms[forms[i]].oninput = this.callback[forms[i]].bind(this);
+
+
+		this.DOM.forms[forms[i]].oninput = this.callback[forms[i]].bind(this);
+
 		// onchange is for the checkboxes on mobile touch devices
-		this.DOM.forms[forms[i]].onchange = this.callback[forms[i]].bind(this);
+		if (mobileCheck()) {
+			this.DOM.forms[forms[i]].onchange = this.callback[forms[i]].bind(this);
+		}
+
 		this.DOM.forms[forms[i]].onsubmit = function () {
 			return false;
 		};
@@ -83,10 +89,14 @@ CONTROLS.init.speed = function () {
  */
 
 	var input = document.createElement('input');
-	input.type = 'number';
+	input.type = 'range';
+	input.classList.add("form-range");
 	input.value = SPEED;
+	input.min = -0.05;
+	input.max = 0.05;
 	input.step = 0.001;
-	input.classList.add("form-control");
+	input.value = SPEED;
+	document.getElementById("speedValue").innerHTML = SPEED  + " radians per frame";
 	this.DOM.children.speed = input;
 	this.DOM.forms.speed.appendChild(input);
 };
@@ -235,6 +245,7 @@ CONTROLS.callback.speed = function () {
 	}
 
 	SPEED = value;
+	document.getElementById("speedValue").innerHTML = SPEED  + " radians per frame";
 };
 
 CONTROLS.callback.distance = function () {
