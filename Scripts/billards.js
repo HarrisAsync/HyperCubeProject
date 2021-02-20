@@ -208,7 +208,7 @@ function scaleP(points, hBoard, lBoard) {
 function findScaleFactor(hBoard, lBoard) {
     let factor_H = (windH - (padding * 2)) / hBoard;
     let factor_W = (windW - (padding * 2)) / lBoard;
-    console.log(factor_H, factor_W)
+    
     return Math.min(factor_H, factor_W);
 }
 
