@@ -91,8 +91,11 @@ function drawLaser(colArrMapped, colArr, h) {
         if (nLoop + 2 == colArrMapped.length) { fill(color('#78B798')); }
         text(txt2, colArrMapped[nLoop + 1].x + sideOffset2.x, colArrMapped[nLoop + 1].y + sideOffset2.y);
     }
+
     // Draw dot a points
-    fill(color('#1C5E3E'));
+    noStroke();
+    textSize(textCordSize());
+    fill(color('#e1e1e1'));
     ellipse(colArrMapped[nLoop + 1].x, colArrMapped[nLoop + 1].y, laserThickness);
     pop();
 }
