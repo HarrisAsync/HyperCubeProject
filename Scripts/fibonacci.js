@@ -134,7 +134,8 @@ function findFlowerBounds(actualBurArr) {
 function mapPoints(points, xMin, xMax, yMin, yMax) {
     let arr = [];
     for (point of points) {
-        arr.push([map(point[0] - xMin, 0, xMax, 10, windW / 2), map(point[1] - yMin, 0, yMax, 10, windH / 2)]);
+        let k = Math.min(windW/(xMax-xMin), windH/(yMax-yMin));
+        arr.push([point[0]*k+windW/2, point[1]*k+windH/2]);
     }
     return arr;
 }
@@ -205,7 +206,7 @@ function resetCanvas() {
     // Get Bud Locations
     budArr = findBudLocations(maxBuds);
     let bounds = findFlowerBounds(budArr);
-    budArr = mapPoints(budArr, bounds[0], bounds[1], bounds[2], bounds[3])
+    budArr = mapPoints(budArr, bounds[0], bounds[1], bounds[2], bounds[3]);
     k = 0;
 
     // Set bug size to 2% of canvas width
