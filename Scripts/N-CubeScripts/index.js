@@ -7,9 +7,12 @@
 function getD() {
 	if (window.mobileCheck()) {
 		if (screen.availHeight >= screen.availWidth) { // Vertical
-			return [window.innerHeight/2, window.innerWidth - (parseInt(window.getComputedStyle(canvasDIV, null).getPropertyValue('padding-left'), 10)*4)];
+			return [window.innerHeight/2, parseInt(window.getComputedStyle(canvasDIV, null).getPropertyValue('width'), 10) - (parseInt(window.getComputedStyle(canvasDIV, null).getPropertyValue('padding-left'), 10)*4)];
+		} else { // Horizonal
+			return [window.innerWidth/2, parseInt(window.getComputedStyle(canvasDIV, null).getPropertyValue('width'), 10) - (parseInt(window.getComputedStyle(canvasDIV, null).getPropertyValue('padding-left'), 10)*4)];
 		}
 	}
+	// Standard size.
 	return [window.innerHeight/2, window.innerWidth/2];
 }
 
