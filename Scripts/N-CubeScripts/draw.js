@@ -68,7 +68,7 @@ function drawVertices(points) {
 	for (var i = 0; i < points.length; i++) {
 		ctx.beginPath();
 		ctx.arc(points[i][0], points[i][1], 3, 0, 2 * Math.PI);
-		ctx.fillStyle = '#3FBA7D';
+		ctx.fillStyle = '#FFFFFF';
 		ctx.fill();
 	}
 }
@@ -103,7 +103,7 @@ function connectVertices(points) {
 		ctx.lineTo(points[i2][0], points[i2][1]);
 	}
 
-	ctx.strokeStyle = '#3FBA7D';
+	ctx.strokeStyle = '#FFFFFF';
 	ctx.stroke();
 }
 
