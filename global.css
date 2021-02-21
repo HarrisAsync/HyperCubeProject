@@ -16,9 +16,14 @@ applause-button {
     width: 30px;
 }
 
+.count {
+    width: fit-content;
+    text-align: left !important;
+}
+
 applause-button .count-container {
     top: 5% !important;
-    left: 26px !important;
+    left: 35px !important;
 }
 
 .style-root {
