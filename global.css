@@ -12,6 +12,30 @@
     }
 }
 
+applause-button {
+    width: 30px;
+}
+
+.style-root {
+    fill: var(--bs-green) !important;
+    stroke: var(--bs-green) !important;
+    color: var(--bs-green) !important;
+}
+
+.shockwave {
+    border-radius: 0% !important;
+    border-top-right-radius: .2rem !important;
+    border-bottom-right-radius: .2rem !important;
+}
+
+applause-button .style-root:after {
+    border-top-left-radius: 0% !important;
+    border-bottom-left-radius: 0% !important;
+    border-top-right-radius: .2rem !important;
+    border-bottom-right-radius: .2rem !important;
+    border-left: none !important;
+}
+
 :root {
     --radi: 0.25em;
 }
