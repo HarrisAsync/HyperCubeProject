@@ -202,7 +202,7 @@ function draw() {
 }
 
 function resetCanvas() {
-    background(color('#212121'));
+    background(color('#111111'));
     // Get Bud Locations
     budArr = findBudLocations(maxBuds);
     let bounds = findFlowerBounds(budArr);

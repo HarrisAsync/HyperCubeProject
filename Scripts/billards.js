@@ -126,7 +126,7 @@ function setup() {
     //     e.preventDefault();
     // });
     cnv.parent('bTable');
-    background(color("#212121"));
+    background(color("#111111"));
     frameRate(fps);
 }
 
@@ -221,7 +221,7 @@ function findScaleFactor(hBoard, lBoard) {
 }
 
 function resetBoard() {
-    background(color("#212121"));
+    background(color("#111111"));
     changeOccured = true;
     nLoop = 0;
     actualCordsArr = [];

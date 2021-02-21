@@ -6,7 +6,7 @@
 
 function draw() {
 	// Clear the screen
-	ctx.fillStyle = '#212121';
+	ctx.fillStyle = '#111111';
 	ctx.fillRect(-WIDTH / 2, -HEIGHT / 2, WIDTH, HEIGHT);
 
 	// Matrices
