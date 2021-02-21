@@ -16,6 +16,11 @@ applause-button {
     width: 30px;
 }
 
+applause-button .count-container {
+    top: 0% !important;
+    left: 75% !important;
+}
+
 .style-root {
     fill: var(--bs-green) !important;
     stroke: var(--bs-green) !important;
