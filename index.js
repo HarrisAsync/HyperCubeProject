@@ -1,6 +1,16 @@
 const INTRO = $("#intro-section");
 const TITLE = $("#title");
 const PARTICLE = $("#particles-js");
+const CLAP_BUTTONS = $("applause-button");
+const TOTAL_CLAP_COUNTER = $("#claps");
+
+let total_likes = 0;
+CLAP_BUTTONS.each(function (index) {
+    this.initialClapCount.then(function (count) {
+        total_likes += count || 0;
+        TOTAL_CLAP_COUNTER.text(total_likes);
+    });
+});
 
 /* ---- particles.js config ---- */
 function resize() {
